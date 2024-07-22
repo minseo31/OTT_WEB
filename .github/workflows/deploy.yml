@@ -39,7 +39,7 @@ jobs:
         run: |
           set -x
           az webapp deploy --name ${{ secrets.AZURE_WEBAPP_NAME_SECURITY }} \
-                           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+                           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP_SECURITY }} \
                            --src-path build/libs/***-0.0.1-SNAPSHOT.jar \
                            --type jar
         env:
