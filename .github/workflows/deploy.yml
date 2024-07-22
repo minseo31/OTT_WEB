@@ -1,0 +1,49 @@
+name: Azure Login with Federated Identity and Deployment
+
+on:
+  push:
+    branches:
+      - security  # 브랜치 이름 수정
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: security  # 환경 이름 수정
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Give execute permission to gradlew
+        run: chmod +x ./gradlew
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID_SECURITY }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build application with Gradle
+        run: ./gradlew build
+
+      - name: Deploy to Azure Web App
+        run: |
+          set -x
+          az webapp deploy --name ${{ secrets.AZURE_WEBAPP_NAME_SECURITY }} \
+                           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+                           --src-path build/libs/***-0.0.1-SNAPSHOT.jar \
+                           --type jar
+        env:
+          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
+          ApplicationInsightsAgent_EXTENSION_VERSION: ${{ secrets.ApplicationInsightsAgent_EXTENSION_VERSION }}
+          XDT_MicrosoftApplicationInsights_Mode: ${{ secrets.XDT_MicrosoftApplicationInsights_Mode }}
+          XDT_MicrosoftApplicationInsights_Java: ${{ secrets.XDT_MicrosoftApplicationInsights_Java }}
