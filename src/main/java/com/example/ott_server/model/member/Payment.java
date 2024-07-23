@@ -20,10 +20,10 @@ public class Payment {
     private String card_number;
 
     @Column(name = "expiry_date")
-    private LocalDate expiry_date;
+    private String expiry_date;
 
     @Column(name = "payment_date")
-    private LocalDate payment_date;
+    private String payment_date;
 
     @Column(name = "card_name")
     private String card_name;
