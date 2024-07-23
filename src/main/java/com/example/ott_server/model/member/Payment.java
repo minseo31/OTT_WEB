@@ -23,7 +23,7 @@ public class Payment {
     private String expiry_date;
 
     @Column(name = "payment_date")
-    private String payment_date;
+    private LocalDate payment_date;
 
     @Column(name = "card_name")
     private String card_name;
