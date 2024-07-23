@@ -27,7 +27,7 @@ public class MemberRegisterDTO {
     private String card_number;
 
     @NonNull
-    private LocalDate expiry_date;
+    private String expiry_date;
 
     @NonNull
     private String card_name;
