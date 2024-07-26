@@ -31,4 +31,14 @@ public interface WishlistRepository extends JpaRepository<Wishlist , Integer> {
     @Query(value = WishlistQuery.MEMBER_WISHLIST_DELETE_QUERY, nativeQuery = true)
     void memberWishlistDelete(@Param("email") String email, @Param("movieID") int movieID);
 
+    // MemberProfile의 Wishlist 삭제
+    @Modifying
+    @Query(value = WishlistQuery.MEMBERPROFILE_WISHLIST_ALL_DELETE_QUERY, nativeQuery = true)
+    void MemberProfileWishlistAllDelete(@Param("memberProfileId") int memberProfileId);
+
+    // Member의 Wishlist 삭제
+    @Modifying
+    @Query(value = WishlistQuery.MEMBER_WISHLIST_ALL_DELETE_QUERY, nativeQuery = true)
+    void MemberWishlistAllDelete(@Param("memberId") int memberId);
+
 }
