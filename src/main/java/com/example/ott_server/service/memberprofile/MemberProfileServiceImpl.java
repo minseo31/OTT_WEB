@@ -6,6 +6,7 @@ import com.example.ott_server.model.member.Member;
 import com.example.ott_server.model.member.MemberProfile;
 import com.example.ott_server.repository.member.MemberProfileRepository;
 import com.example.ott_server.repository.member.MemberRepository;
+import com.example.ott_server.repository.wishlist.WishlistRepository;
 import com.example.ott_server.status.ResultStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class MemberProfileServiceImpl implements MemberProfileService{
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    // 위시리스트 리포지토리
+    @Autowired
+    private WishlistRepository wishlistRepository;
 
     // 멤버프로필 추가
     @Override
@@ -50,9 +55,25 @@ public class MemberProfileServiceImpl implements MemberProfileService{
     @Override
     @Transactional
     public ResultStatus deleteMemberProfileById(int memberProfileId) {
-        memberProfileRepository.deleteById(memberProfileId);
+        try {
+            Optional<MemberProfile> optionalMemberProfile = memberProfileRepository.findById(memberProfileId);
 
-        return ResultStatus.SUCCESS;
+            // MemberProfile 존재 확인
+            if (optionalMemberProfile.isPresent()) {
+                // Wishlist에서 해당 memberProfileId와 관련된 데이터 모두 삭제
+                wishlistRepository.MemberProfileWishlistAllDelete(memberProfileId);
+
+                // MemberProfile 삭제
+                memberProfileRepository.deleteById(memberProfileId);
+
+                return ResultStatus.SUCCESS;
+            } else {
+                throw new IllegalArgumentException("존재하지 않는 회원 프로필입니다.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultStatus.FAIL;
+        }
     }
 
     // 멤버프로필 비밀번호 수정
