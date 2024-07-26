@@ -1,16 +1,3 @@
-package com.example.ott_server.service.member;
-
-import com.example.ott_server.dto.PasswordChangeDTO;
-import com.example.ott_server.dto.member.MemberAllDTO;
-import com.example.ott_server.dto.member.MemberRegisterDTO;
-import com.example.ott_server.model.member.Member;
-import com.example.ott_server.model.member.MemberProfile;
-import com.example.ott_server.model.member.Membership;
-import com.example.ott_server.model.member.Payment;
-import com.example.ott_server.repository.member.MemberProfileRepository;
-import com.example.ott_server.repository.member.MemberRepository;
-import com.example.ott_server.repository.member.MembershipRepository;
-import com.example.ott_server.repository.member.PaymentRepository;
 import com.example.ott_server.status.ResultStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +28,10 @@ public class MemberServiceImpl implements MemberService{
     // 결제정보 리포지토리
     @Autowired
     private PaymentRepository paymentRepository;
+
+    // 위시리스트 리포지토리
+    @Autowired
+    private WishlistRepository wishlistRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -157,8 +148,11 @@ public class MemberServiceImpl implements MemberService{
 
                 // MemberProfile 삭제
                 List<MemberProfile> memberProfiles = memberProfileRepository.findByMemberId(memberId);
-                if (!memberProfiles.isEmpty()) {
-                    memberProfileRepository.deleteAll(memberProfiles);
+                for (MemberProfile memberProfile : memberProfiles) {
+                    // Wishlist에서 해당 memberProfileId와 관련된 데이터 삭제
+                    wishlistRepository.MemberProfileWishlistAllDelete(memberProfile.getId());
+                    // MemberProfile 삭제
+                    memberProfileRepository.delete(memberProfile);
                 }
 
                 // Payments 삭제
@@ -166,6 +160,9 @@ public class MemberServiceImpl implements MemberService{
                 if (payment != null) {
                     paymentRepository.delete(payment);
                 }
+
+                // Wishlist에서 해당 memberId와 관련된 데이터 삭제
+                wishlistRepository.MemberWishlistAllDelete(memberId);
 
                 // Member 삭제
                 memberRepository.delete(member);
@@ -223,3 +220,4 @@ public class MemberServiceImpl implements MemberService{
         return dtoList;
     }
 }
+
