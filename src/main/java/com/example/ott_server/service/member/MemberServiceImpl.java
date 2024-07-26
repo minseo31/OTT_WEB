@@ -1,3 +1,17 @@
+package com.example.ott_server.service.member;
+
+import com.example.ott_server.dto.PasswordChangeDTO;
+import com.example.ott_server.dto.member.MemberAllDTO;
+import com.example.ott_server.dto.member.MemberRegisterDTO;
+import com.example.ott_server.model.member.Member;
+import com.example.ott_server.model.member.MemberProfile;
+import com.example.ott_server.model.member.Membership;
+import com.example.ott_server.model.member.Payment;
+import com.example.ott_server.repository.member.MemberProfileRepository;
+import com.example.ott_server.repository.member.MemberRepository;
+import com.example.ott_server.repository.member.MembershipRepository;
+import com.example.ott_server.repository.member.PaymentRepository;
+import com.example.ott_server.repository.wishlist.WishlistRepository;
 import com.example.ott_server.status.ResultStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +23,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public class MemberServiceImpl implements MemberService{
