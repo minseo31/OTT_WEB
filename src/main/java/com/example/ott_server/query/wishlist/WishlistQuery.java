@@ -27,6 +27,13 @@ public class WishlistQuery {
                     "WHERE mp.member_email = :email " +
                     "AND w.movie_id = :movieID ";
 
+    // 멤버 삭제시 위시리스트 삭제
+    public static final String MEMBER_WISHLIST_ALL_DELETE_QUERY =
+            "DELETE FROM Wishlist w WHERE w.member_id = :memberId";
+
+    // 멤버프로필 삭제시 위시리스트 삭제
+    public static final String MEMBERPROFILE_WISHLIST_ALL_DELETE_QUERY =
+            "DELETE FROM Wishlist w WHERE w.member_profile_id = :memberProfileId";
 
 
 }
