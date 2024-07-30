@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 멤버쉽 라벨  */
+.membership-gradient-custom {
+  width: 450px;
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    to right,
+    #11111175 0%,
+    #28186785 10%,
+    #e5091495,
+    #28186785 90%,
+    #11111175 100%
+  );
+}
+
+/* section2 광고형 스탠다드 멤버쉽 광고 콘텐츠 박스 */
+.section2-member-ad-box {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-image: linear-gradient(
+    to right,
+    #11111160 0%,
+    #28186770 10%,
+    #e5091480,
+    #28186770 90%,
+    #11111160 100%
+  );
+}
