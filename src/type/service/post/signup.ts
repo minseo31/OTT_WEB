@@ -10,8 +10,8 @@ export type UserAddDataType = {
   name: string;
   email: string;
   password: string;
-  cardNumber: string;
-  expiryDate: string;
-  cardName: string;
+  card_number: string;
+  expiry_date: string;
+  card_name: string;
   amount: 5500 | 13500 | 17000;
 };
