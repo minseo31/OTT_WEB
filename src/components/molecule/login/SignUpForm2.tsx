@@ -56,10 +56,10 @@ const SignUpForm2 = ({
         name: prev.name,
         email: prev.email,
         password: prev.password,
-        cardName: prev.cardName,
-        cardNumber: prev.cardNumber,
+        card_name: prev.card_name,
+        card_number: prev.card_number,
         amount: membershipAmount,
-        expiryDate: prev.expiryDate,
+        expiry_date: prev.expiry_date,
       };
     });
   }, [membership, setSignUpData]);
