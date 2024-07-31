@@ -42,9 +42,9 @@ const LoginPage = ({
     name: ``,
     email: ``,
     password: ``,
-    cardNumber: ``,
-    expiryDate: ``,
-    cardName: ``,
+    card_number: ``,
+    expiry_date: ``,
+    card_name: ``,
     amount: 17000,
   });
 
