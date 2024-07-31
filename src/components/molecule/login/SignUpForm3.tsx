@@ -62,10 +62,10 @@ const SignUpForm3 = ({
         name: prev.name,
         email: prev.email,
         password: prev.password,
-        cardName: name,
-        cardNumber: cardNum,
+        card_name: name,
+        card_number: cardNum,
         amount: prev.amount,
-        expiryDate: expirationPeriod,
+        expiry_date: expirationPeriod,
       };
     });
   }, [name, cardNum, expirationPeriod]);
