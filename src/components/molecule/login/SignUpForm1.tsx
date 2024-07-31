@@ -95,10 +95,10 @@ const SignUpForm1 = ({ setSignLevel, setSignUpData }: SignLevelState) => {
         name: prev.name,
         email: signEmail,
         password: pw,
-        cardName: prev.cardName,
-        cardNumber: prev.cardNumber,
+        card_name: prev.card_name,
+        card_number: prev.card_number,
         amount: prev.amount,
-        expiryDate: prev.expiryDate,
+        expiry_date: prev.expiry_date,
       };
     });
   }, [email, pw]);
