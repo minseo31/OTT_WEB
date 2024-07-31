@@ -8,6 +8,8 @@ import {
 } from "../../../style/molecule/main/banner";
 import { MainBannerPropsType } from "../../../type/props/main";
 import Arrowicon from "../../icon/Arrowicon";
+import SubTitle from "../../atom/text/SubTitle";
+import { Link } from "react-router-dom";
 
 // 메인페이지
 const MainBannerContainer = ({
@@ -18,18 +20,6 @@ const MainBannerContainer = ({
   const banerImgRef = useRef<HTMLImageElement>(null);
   // 배너 현재 페이지 값
   const [banerPage, setBannerPage] = useState<number>(1);
-
-  // -----------------------------------------------
-  const 진짜넷플릭스 = () => {
-    const confirmed = window.confirm(
-      "진짜 넷플릭스 홈페이지로 이동하시겠습니까?"
-    );
-    if (confirmed) {
-      window.location.href = "https://www.netflix.com/kr/";
-    }
-  };
-
-  // ----------------------------------------------
 
   return (
     <div className={`${MainBannerContainerStyle} `}>
@@ -55,23 +45,24 @@ const MainBannerContainer = ({
           className={`${MainBannerStyle} transition-all duration-500`}
           style={{ left: `${bannerPosition}px` }}
         >
-          <img
-            ref={banerImgRef}
-            src="/image/banner/banner1.gif"
-            alt=""
-            className={`${mainBannerImgStyle}`}
-            onClick={() => 진짜넷플릭스()}
-          />
-          <img
-            src="/image/banner/banner2.jpg"
-            alt=""
-            className={`${mainBannerImgStyle}`}
-          />
-          <img
-            src="/image/banner/banner3.jpg"
-            alt=""
-            className={`${mainBannerImgStyle}`}
-          />
+          <Link to="https://about.netflix.com/ko">
+            <img
+              ref={banerImgRef}
+              src="/image/banner/banner1.gif"
+              alt="Netflix Banner1"
+              className={`${mainBannerImgStyle}`}
+            />
+          </Link>
+          <Link to="https://youtu.be/hU05_Rkm8qE?si=taYVyMDlPhaNVIBY">
+            <video className={`${mainBannerImgStyle}`} autoPlay muted loop>
+              <source src="/image/banner/banner2.mp4" type="video/mp4" />
+            </video>
+          </Link>
+          <Link to="https://youtu.be/EiCmnIaj4u8?si=FAs1GRVGkG2zsrvA">
+            <video className={`${mainBannerImgStyle}`} autoPlay muted loop>
+              <source src="/image/banner/banner3.mp4" type="video/mp4" />
+            </video>
+          </Link>
         </div>
       </div>
       {/* 오른쪽 넘기기 */}
@@ -95,3 +86,4 @@ const MainBannerContainer = ({
 };
 
 export default MainBannerContainer;
+
