@@ -30,7 +30,7 @@ public class JWTUtil {
 
         return Jwts.builder()
                 .setIssuedAt(new Date(System.currentTimeMillis())) // 토큰 발행 시간 설정
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // 토큰 유효기간 설정 (1시간)
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // 토큰 유효기간 설정 (24시간)
                 .setSubject(userDetails.getUsername()) // 토큰의 subject 설정 (사용자 이메일)
                 .claim("email", userDetails.getUsername()) // 추가 클레임 설정
                 .signWith(getSigningKey(), SignatureAlgorithm.HS512) // 비밀 키로 서명
