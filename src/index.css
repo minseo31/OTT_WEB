@@ -35,3 +35,31 @@
     #11111160 100%
   );
 }
+
+/* 전체 페이지에 적용되는 스크롤바 스타일 */
+html {
+  scrollbar-width: thin; /* Firefox에서 스크롤바 너비 조정 */
+  scrollbar-color: #e50914 #000; /* Firefox에서 스크롤바 색상 조정 */
+}
+
+body {
+  overflow-x: hidden; /* 수평 스크롤바 숨기기 */
+}
+
+/* 웹킷 기반 브라우저 (Chrome, Safari)에서 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 12px; /* 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-track {
+  background: #000; /* 스크롤바 트랙 색상 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e50914; /* 스크롤바 색상 */
+  border-radius: 6px; /* 스크롤바 둥글기 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4070c; /* 호버 시 스크롤바 색상 */
+}
