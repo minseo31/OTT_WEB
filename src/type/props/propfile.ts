@@ -73,6 +73,8 @@ export type ProfileMemberBoxPropsType = {
   setMemberLoginOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setLoginMemberEmail: React.Dispatch<React.SetStateAction<string>>;
   setLoginMemberName: React.Dispatch<React.SetStateAction<string>>;
+  setMemberAccessModal: React.Dispatch<React.SetStateAction<boolean>>;
+  isMember?: boolean;
 };
 
 // 프로필 멤버 삭제 모달 Props 타입
