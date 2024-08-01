@@ -17,6 +17,7 @@ import { userConvert } from "../../../event/profile/userConvert";
 import MemberConvertModal from "../../modal/MemberConvertModal";
 import { removeDuplicateEmails } from "../../../util/validation/profile/uniqueMemberFilter";
 import SubText from "../../atom/text/SubText";
+import MemberLimitModal from "../../modal/MemberLimitModal";
 
 // 프로필 멤버 컨테이너
 const ProfileSetContainer = ({
@@ -47,9 +48,14 @@ const ProfileSetContainer = ({
   const [loginMemberEmail, setLoginMemberEmail] = useState<string>("");
   // 로그인할 멤버의 이름
   const [loginMemberName, setLoginMemberName] = useState<string>("");
-  // 메인 계정전화 모달
+  // 메인 계정전환 모달
   const [memberConvertModalOpen, setMemberConvertModalOpen] =
     useState<boolean>(false);
+  // 멤버 추가 제한 모달
+  const [memberLimitModal, setMemberLimitModal] = useState<boolean>(false);
+
+  // 멤버 수
+  const [memberCount, setMemberCount] = useState<number>(0);
 
   useEffect(() => {
     if (members?.length) {
@@ -61,6 +67,15 @@ const ProfileSetContainer = ({
 
   // 데이터 처리
   const uniqueData = removeDuplicateEmails(members);
+
+  // 멤버 추가 제한
+  useEffect(() => {
+    if (loginMember) {
+      loginMember[0].membership_level === "프리미엄(Premium) 4K+HDR"
+        ? setMemberCount(4)
+        : setMemberCount(2);
+    }
+  }, [loginMember]);
 
   return (
     <section className="w-full h-[250px] bg-black1 flex flex-col justify-between items-center px-12">
@@ -76,7 +91,15 @@ const ProfileSetContainer = ({
               textColor="#E50914"
             />
           </div>
-          <div onClick={() => handelMemberAddEvent(setMemberAddMadal)}>
+          <div
+            onClick={() =>
+              handelMemberAddEvent(
+                setMemberAddMadal,
+                memberCount,
+                setMemberLimitModal
+              )
+            }
+          >
             <BigBtn text="멤버 추가" bgColor="bg-main_Red" />
           </div>
         </div>
@@ -145,9 +168,14 @@ const ProfileSetContainer = ({
             setIsMeber={setIsMember}
           />
         )}
+        {/* 멤버 추가 제한 모달 */}
+        {memberLimitModal && (
+          <MemberLimitModal setMemberLimitModal={setMemberLimitModal} />
+        )}
       </div>
     </section>
   );
 };
 
 export default ProfileSetContainer;
+
