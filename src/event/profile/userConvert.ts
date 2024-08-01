@@ -27,5 +27,7 @@ export const userConvert = (
     setLoginMember(mainMemberData);
     // 멤버 로그인 상태 변경
     setIsMeber(false);
+
+    localStorage.setItem("isMember", "false");
   }
 };
