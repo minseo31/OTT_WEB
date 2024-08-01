@@ -18,6 +18,7 @@ import MemberConvertModal from "../../modal/MemberConvertModal";
 import { removeDuplicateEmails } from "../../../util/validation/profile/uniqueMemberFilter";
 import SubText from "../../atom/text/SubText";
 import MemberLimitModal from "../../modal/MemberLimitModal";
+import MemberAccessModal from "../../modal/MemberAccessModal";
 
 // 프로필 멤버 컨테이너
 const ProfileSetContainer = ({
