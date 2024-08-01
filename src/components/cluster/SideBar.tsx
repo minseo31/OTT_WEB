@@ -45,7 +45,7 @@ const SideBar = ({
 }: SideBarPropsType) => {
   // 사이드 바 오픈 상태
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [parmId, setParm] = useState<number | null>(null);
+  const [parmId, setParm] = useState<string | null>(null);
   const { id } = useParams();
 
   // 장르 컨테이너 등장
