@@ -29,7 +29,7 @@ const ProfileMemberBox = ({
       </div>
       <div
         onClick={() => {
-          isMember
+          localStorage.getItem("isMember") === "true"
             ? setMemberAccessModal(true)
             : handleMemberDelEvent(setMemberDelModal, member, setDeleteMember);
         }}
