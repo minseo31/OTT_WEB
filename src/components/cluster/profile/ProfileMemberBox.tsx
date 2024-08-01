@@ -26,9 +26,11 @@ const ProfileMemberBox = ({
         <SmallBtn text="멤버 전환" bgColor="bg-main_Red" />
       </div>
       <div
-        onClick={() =>
-          handleMemberDelEvent(setMemberDelModal, member, setDeleteMember)
-        }
+        onClick={() => {
+          isMember
+            ? setMemberAccessModal(true)
+            : handleMemberDelEvent(setMemberDelModal, member, setDeleteMember);
+        }}
       >
         <SmallBtn text="멤버 삭제" bgColor="bg-black1_07" />
       </div>
