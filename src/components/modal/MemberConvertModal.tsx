@@ -16,8 +16,11 @@ const MemberConvertModal = ({
   userEmail,
   setIsMeber,
 }: MemberConvertModalPropstype) => {
+  const mainEmail = localStorage.getItem("userEmail");
+  const loginEmail = localStorage.getItem("loginEmail");
+  
   // 메인 계정으로 로그인 상태 일떄
-  if (!isMember) {
+  if (mainEmail === loginEmail) {
     return (
       <div className={`${modalContainerStyle}`}>
         <Overlay />
@@ -31,31 +34,38 @@ const MemberConvertModal = ({
     );
   }
 
-  return (
-    <div className={`${modalContainerStyle}`}>
-      <Overlay />
-      <div className={`${memberDeleteBox} gap-14`}>
-        <SubTitle text={`메인 계정으로 전환하시겠습니까?`} />
-        <BtnBox>
-          <div
-            onClick={() =>
-              userConvert(
-                setLoginMember,
-                setMemberConvertModalOpen,
-                userEmail,
-                setIsMeber
-              )
-            }
-          >
-            <SmallBtn text="계정전환" bgColor="bg-main_Red" />
-          </div>
-          <div onClick={() => setMemberConvertModalOpen(false)}>
-            <SmallBtn text="뒤로가기" bgColor="bg-black1_07" />
-          </div>
-        </BtnBox>
+    if (mainEmail !== loginEmail) {
+    return (
+      <div className={`${modalContainerStyle}`}>
+        <Overlay />
+        <div className={`${memberDeleteBox} gap-14`}>
+          <SubTitle text={`메인 계정으로 전환하시겠습니까?`} />
+          <BtnBox>
+            <div
+              onClick={() => {
+                userConvert(
+                  setLoginMember,
+                  setMemberConvertModalOpen,
+                  userEmail,
+                  setIsMeber
+                );
+              }}
+            >
+              <SmallBtn text="계정전환" bgColor="bg-main_Red" />
+            </div>
+            <div
+              className="w-fit h-fit relative z-[999]"
+              onClick={() => setMemberConvertModalOpen(false)}
+            >
+              <SmallBtn text="뒤로가기" bgColor="bg-black1_07" />
+            </div>
+          </BtnBox>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <></>;
 };
 
 export default MemberConvertModal;
