@@ -79,7 +79,13 @@ const SideBar = ({
           isOpen ? sideBarListBoxStyle : sideBarListBoxStyleS
         } transition-all duration-300`}
       >
-        <Link to="/">
+        <Link 
+          to="/"
+          onClick={() => {
+            setIsPage("s1");
+            genreContainerOpenEvent(setGenreOpen, false);
+          }}
+        >
           {isOpen ? (
             <Fulllogo width="w-[200px]" height="h-[100px]" />
           ) : (
