@@ -115,11 +115,6 @@ const ProfilePage = ({
       // 멤버 데이터를 로컬에 저장
       localStorage.setItem("MemberData", JSON.stringify(members));
     }
-
-    // 메인 계정으로 전환하기 위한 메인 계정 데이터 저장
-    if (!isMember) {
-      localStorage.setItem("MainMemberData", JSON.stringify(loginMember));
-    }
   }, [memberData]);
 
   useEffect(() => {
@@ -131,6 +126,11 @@ const ProfilePage = ({
         setUserEmail(email);
         userEmail && fetchMember(userEmail);
       }
+    }
+
+    // 메인 계정으로 전환하기 위한 메인 계정 데이터 저장
+    if (!isMember) {
+      localStorage.setItem("MainMemberData", JSON.stringify(loginMember));
     }
   }, [members, loginMember, memberData]);
 
