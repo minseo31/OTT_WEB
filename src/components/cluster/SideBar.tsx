@@ -61,11 +61,13 @@ const SideBar = ({
     }
   }, []);
 
-  useEffect(() => {
-    if (loginMember && loginMember.length > 0) {
-      setParm(loginMember[0].id);
+ useEffect(() => {
+    const loginEmail = localStorage.getItem("loginEmail");
+
+    if (loginEmail) {
+      setParm(loginEmail);
     }
-  }, [loginMember]);
+  }, [loginMember, isPage]);
 
   return (
     <aside
