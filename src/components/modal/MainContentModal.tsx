@@ -23,6 +23,7 @@ import { ageRatingData } from "../../data/mainDatas";
 import { ageRatingVali } from "../../util/validation/main/ageVali";
 import SmallBtn from "../atom/button/SmallBtn";
 import { wishlistEvent } from "../../event/main/wishlistEvent";
+import { subTitleStyle } from "../../style/atom/text";
 
 // 메인 콘텐츠 모달
 const MainContentModal = ({
@@ -162,7 +163,7 @@ const MainContentModal = ({
           className={`${uiBtnStyle}`}
           onClick={() => handelTeaserUiOpen(setUiOpen)}
         >
-          <SubTitle text="UI" align="text-center" />
+          <button className={`${subTitleStyle}`}>UI</button>
           {!uiOpen && <div className={`${noUiBorderStyle}`}></div>}
         </div>
         {uiOpen && (
