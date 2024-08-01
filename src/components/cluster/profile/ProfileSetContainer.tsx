@@ -53,6 +53,12 @@ const ProfileSetContainer = ({
     useState<boolean>(false);
   // 멤버 추가 제한 모달
   const [memberLimitModal, setMemberLimitModal] = useState<boolean>(false);
+  // 멤버 삭제 권한 모달
+  const [memberAccessModal, setMemberAccessModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    isMember && setMemberAccessModal(false);
+  }, [isMember]);
 
   // 멤버 수
   const [memberCount, setMemberCount] = useState<number>(0);
@@ -124,6 +130,8 @@ const ProfileSetContainer = ({
                     setMemberLoginOpen={setMemberLoginOpen}
                     setLoginMemberEmail={setLoginMemberEmail}
                     setLoginMemberName={setLoginMemberName}
+                    setMemberAccessModal={setMemberAccessModal}
+                    isMember={isMember}
                   />
                 </div>
               ))}
@@ -171,6 +179,16 @@ const ProfileSetContainer = ({
         {/* 멤버 추가 제한 모달 */}
         {memberLimitModal && (
           <MemberLimitModal setMemberLimitModal={setMemberLimitModal} />
+        )}
+        {/* 멤버 삭제 제한 모달 */}
+        {memberAccessModal && (
+          <MemberAccessModal
+            setMemberAccessModal={setMemberAccessModal}
+            setLoginMember={setLoginMember}
+            setMemberConvertModalOpen={setMemberConvertModalOpen}
+            userEmail={userEmail}
+            setIsMeber={setIsMember}
+          />
         )}
       </div>
     </section>
