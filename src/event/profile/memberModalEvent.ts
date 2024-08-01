@@ -81,13 +81,10 @@ export const MemberAddEvent = async (
 export const handelMemberAddEvent = (
   setMemberAddMadal: React.Dispatch<React.SetStateAction<boolean>>,
   memberCount: number,
-  setMemberLimitModal: React.Dispatch<React.SetStateAction<boolean>>
+  setMemberLimitModal: React.Dispatch<React.SetStateAction<boolean>>,
+  setMemberAccessModal: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
-  const memberData = localStorage.getItem("MemberData");
-
-  if (memberData) {
-    JSON.parse(memberData).length >= memberCount
-      ? setMemberLimitModal(true)
-      : setMemberAddMadal((prev) => !prev);
-  }
+  localStorage.getItem("isMember") === "true"
+    ? setMemberAccessModal(true)
+    : setMemberAddMadal(true);
 };
