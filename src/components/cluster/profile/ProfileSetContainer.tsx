@@ -103,7 +103,8 @@ const ProfileSetContainer = ({
               handelMemberAddEvent(
                 setMemberAddMadal,
                 memberCount,
-                setMemberLimitModal
+                setMemberLimitModal,
+                setMemberAccessModal
               )
             }
           >
