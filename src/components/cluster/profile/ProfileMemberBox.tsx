@@ -12,6 +12,8 @@ const ProfileMemberBox = ({
   setMemberLoginOpen,
   setLoginMemberEmail,
   setLoginMemberName,
+  setMemberAccessModal,
+  isMember,
 }: ProfileMemberBoxPropsType) => {
   return (
     <div className={`${profileMemberBoxStyle}`}>
