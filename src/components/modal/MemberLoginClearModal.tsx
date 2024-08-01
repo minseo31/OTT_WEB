@@ -35,7 +35,11 @@ const MemberLoginClaerModal = ({
       <Overlay />
       <div className={`${memberDeleteBox} gap-14`}>
         <SubTitle text={`'${loginMemberName}' 멤버로 전환 하였습니다`} />
-        <div onClick={handleMemberLogin}>
+        <div 
+          onClick={() => {
+            handleMemberLogin();
+            localStorage.setItem("isMember", "true");
+          }}>
           <SmallBtn text="확인" bgColor="bg-main_Red" />
         </div>
       </div>
