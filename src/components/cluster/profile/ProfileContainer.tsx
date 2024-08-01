@@ -40,7 +40,7 @@ const ProfileContainer = ({
           <div className={`${profileNameBoxSTyle}`}>
             <SubText text="환영합니다" align="text-start" />
             <MainTitle text={`${loginMember?.[0].member_name}님`} />
-            <span onClick={() => logoutModalOpenEvnet(setLogoutModalOpen)}>
+            <span className="cursor-pointer" onClick={() => logoutModalOpenEvnet(setLogoutModalOpen)}>
               <SmallTextRed text="로그아웃하기" />
             </span>
           </div>
