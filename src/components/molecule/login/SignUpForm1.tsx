@@ -133,7 +133,7 @@ const SignUpForm1 = ({ setSignLevel, setSignUpData }: SignLevelState) => {
       <div>
         {pwValid ? null : (
           <SmallTextRed
-            text="비밀번호는 영문,숫자,특수문자(@,!)을 혼합하여 입력해야합니다"
+            text="비밀번호는 영문,숫자,특수문자을 혼합하여 입력해야합니다"
             align="text-center"
           />
         )}
@@ -153,7 +153,7 @@ const SignUpForm1 = ({ setSignLevel, setSignUpData }: SignLevelState) => {
       <div>
         {pwValidCheck && pwMatch ? null : (
           <SmallTextRed
-            text={pwValidCheck ? "" : "비밀번호 형식이 올바르지 않습니다."}
+            text={pwValidCheck ? "" : "비밀번호가 일치하지 않습니다."}
             align="text-center"
           />
         )}
