@@ -91,7 +91,10 @@ const ProfileSetContainer = ({
         <SubTitle text="멤버" align="text-start" />
         {/* 버튼 */}
         <div className="flex gap-4">
-          <div onClick={() => setMemberConvertModalOpen(true)}>
+          <div onClick={() => {
+              setMemberConvertModalOpen(true);
+              window.location.reload();
+          }}>
             <BigBtn
               text="메인 계정으로 전환"
               bgColor="bg-white"
