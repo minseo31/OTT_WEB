@@ -41,7 +41,7 @@ const MemberLoginModal = ({
           <div onClick={handleLogin}>
             <SmallBtn text="전환하기" bgColor="bg-main_Red" />
           </div>
-          <div onClick={() => {}}>
+          <div onClick={() => setMemberLoginOpen(false)}>
             <SmallBtn text="뒤로가기" bgColor="bg-black1_07" />
           </div>
         </BtnBox>
