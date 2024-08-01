@@ -55,7 +55,7 @@ const ViewingHistory = ({
             setViewNum(i);
             setTeaserModal(true);
           }}
-          key={history.movieId}
+          key={String(history.movieId) + i}
         >
           <img
             src={history.posterImage}
