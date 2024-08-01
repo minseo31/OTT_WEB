@@ -111,7 +111,7 @@ const MemberAdd = ({
     <div className={`${modalContainerStyle}`}>
       <div
         className="w-screen h-screen fixed z-10"
-        onClick={() => handelMemberAddEvent(setMemberAddMadal)}
+        onClick={() => setMemberAddMadal(false)}
       >
         <Overlay />
       </div>
