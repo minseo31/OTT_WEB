@@ -9,4 +9,4 @@ export const MainBannerStyle = 'w-full h-full whitespace-nowrap relative';
 
 // 배너 이미지
 export const mainBannerImgStyle =
-  'w-full h-full object-cover inline-block cursor-pointer';
+  'w-full h-full object-contain inline-block cursor-pointer';
