@@ -132,7 +132,7 @@ const SignUpForm3 = ({
       <div>
         {cardNumValid ? null : (
           <SmallTextRed
-            text="카드번호 형식이 올바르지 않습니다."
+            text="카드번호 형식이 올바르지 않습니다. (-를 제외하여 입력하세요)"
             align="text-center"
           />
         )}
@@ -153,7 +153,7 @@ const SignUpForm3 = ({
       <div>
         {expirationPeriodValid ? null : (
           <SmallTextRed
-            text="유효기간이 올바르지 않습니다."
+            text="유효기간이 올바르지 않습니다. ex) 01/01"
             align="text-center"
           />
         )}
