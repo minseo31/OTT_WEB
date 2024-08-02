@@ -16,4 +16,4 @@ export const formBtnStyle =
 
 // (모달) 닫기 버튼
 export const closeBtnStyle =
-  "w-[200px] h-[60px] flex justify-center items-center text-lg font-bold text-white rounded-[10px] bg-main_Red relative z-10";
+  "w-[150px] h-[40px] flex justify-center items-center text-lg font-bold text-white rounded-[10px] bg-main_Red relative z-10";
