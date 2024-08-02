@@ -63,3 +63,54 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #c4070c; /* 호버 시 스크롤바 색상 */
 }
+
+.hover {
+  position: relative;
+  width: 250px;
+  height: 100%;
+  gap: 8px;
+  display: inline-block;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.hover:hover {
+}
+
+.hoverOver {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 4px;
+  position: absolute;
+  top: 0;
+  background: #000;
+  opacity: 0.5;
+  display: none;
+}
+
+.hover:hover .hoverOver {
+  display: block;
+}
+
+/* 버튼 기본 스타일 */
+.hoverBtn {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  display: none;
+  /* 기본 상태에서의 스타일 재정의 */
+  filter: none; /* 기본 필터 스타일 설정 */
+  opacity: 1; /* 기본 투명도 설정 */
+  z-index: 999;
+}
+
+/* 호버 시 버튼 스타일 */
+.hover:hover .hoverBtn {
+  display: block;
+  /* 버튼이 표시될 때 필터와 투명도 재정의 */
+  filter: none; /* 필터 제거 */
+  opacity: 1; /* 투명도 제거 */
+}
+
