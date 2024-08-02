@@ -50,7 +50,9 @@ const ViewingHistory = ({
     >
       {viewingHistory.map((history: MainData, i: number) => (
         <div
-          className="w-full h-fit flex flex-col gap-1 border-b-[1px] border-[#E50914] pb-2"
+          className={`w-full h-fit flex gap-4 border-b-[1px] border-[#E50914] pb-2 items-center cursor-pointer transition-all duration-300 ${
+            isOpen ? "flex-row" : "flex-col"
+          }`}
           onClick={() => {
             setViewNum(i);
             setTeaserModal(true);
@@ -62,7 +64,7 @@ const ViewingHistory = ({
             alt={history.movieTitle}
             className={`${viewingHistoryPostStyle}`}
           />
-          <div className="w-full h-fit">
+          <div className="w-fit h-fit transition-all duration-300">
             {isOpen ? (
               <MainText text={history.movieTitle} align="text-center" />
             ) : (
@@ -95,3 +97,4 @@ const ViewingHistory = ({
 };
 
 export default ViewingHistory;
+
