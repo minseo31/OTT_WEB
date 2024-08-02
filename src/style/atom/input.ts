@@ -3,7 +3,7 @@ export const CheckLabelContainerStyle = "w-fit h-fit flex gap-2";
 
 // 체크 박스 컨테이너
 export const CheckBoxContainerStyle =
-  "w-[20px] h-[20px] rounded-[5px] bg-black relative overflow-none";
+  "w-[20px] h-[20px] rounded-[5px] bg-[#333333] relative overflow-none";
 
 // 체크 박스
 export const CheckBoxStyle =
