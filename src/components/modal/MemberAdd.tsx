@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { modalContainerStyle } from "../../style/modal/modal";
 import {
-  inputMemberFormStyle,
+  inputMemberStyle,
   memberAddErrorTextStyle,
   signupFormStyle,
 } from "../../style/molecule/login/container";
@@ -117,7 +117,7 @@ const MemberAdd = ({
         <Overlay />
       </div>
       <div
-        className={`${inputMemberFormStyle} border-2 border-soild border-white bg-black p-2`}
+        className={`${inputMemberStyle} border-2 border-soild border-white bg-black p-2`}
       >
         <Fulllogo width="w-[300px]" height="h-[150px]" />
         <MainTitle text={profileMemberAddModalData.title} />
