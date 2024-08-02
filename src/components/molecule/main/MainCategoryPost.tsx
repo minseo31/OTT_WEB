@@ -4,11 +4,11 @@ import {
   mainCategoryPostStyle,
   postImgStyle,
 } from "../../../style/molecule/main/category";
-import {
-  MainCategorysPropsType,
-} from "../../../type/props/main";
+import { MainCategorysPropsType } from "../../../type/props/main";
 import SubText from "../../atom/text/SubText";
 import { MainData } from "../../../type/data/MainData";
+import ModalBtn from "../../atom/button/ModalBtn";
+import { MemberDataType } from "../../../type/service/get/member";
 
 // 카테고리 포스터
 const MainCategoryPost = ({
@@ -17,6 +17,8 @@ const MainCategoryPost = ({
   setModalContent,
   loginData,
   setClickMovie,
+  title,
+  i,
 }: MainCategorysPropsType) => {
   const [wishData, setWishData] = useState<MainData>({
     movieId: 0,
@@ -35,10 +37,28 @@ const MainCategoryPost = ({
   });
   const [demo, setDemo] = useState<any>();
 
+  const [viewData, setViewData] = useState<MemberDataType[]>();
+
+  const handleRemove = () => {
+    const remove = viewData?.filter((view: any, index) => {
+      return i !== index;
+    });
+
+    localStorage.setItem("ViewingHistory", JSON.stringify(remove));
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    const viewHistory = localStorage.getItem("ViewingHistory");
+    const history = viewHistory && JSON.parse(viewHistory);
+
+    setViewData(history);
+  }, [loginData, demo]);
+
   useEffect(() => {
     loginData &&
       setWishData({
-        movieId: loginData.movie_id,
+        movieId: loginData.movie_id + 2000,
         movieTitle: loginData.title,
         releaseDate: loginData.release_date,
         genreNames: loginData.genres,
@@ -52,12 +72,14 @@ const MainCategoryPost = ({
         productionCompanyNames: loginData.production_companies,
         directorNames: loginData.directors,
       });
-  }, [loginData]);
+  }, [loginData, demo]);
+
+  console.log(viewData);
 
   if (loginData && setClickMovie) {
     return (
       <div
-        className={`${mainCategoryPostStyle}`}
+        className={`${title ? "hover" : mainCategoryPostStyle}`}
         onClick={() =>
           handelTeaserModalOpen(
             setTeaserModal,
@@ -72,6 +94,17 @@ const MainCategoryPost = ({
           alt={loginData?.title}
           className={`${postImgStyle}`}
         />
+        <div className="hoverOver"></div>
+        <div
+          className="hoverBtn"
+          onClick={(e) => {
+            e.stopPropagation();
+            setDemo(" ");
+            handleRemove();
+          }}
+        >
+          <ModalBtn bgColor="bg-main_Red" text="삭제하기" />
+        </div>
         <SubText text={loginData.title} align="text-center" />
       </div>
     );
@@ -99,3 +132,4 @@ const MainCategoryPost = ({
 };
 
 export default MainCategoryPost;
+
