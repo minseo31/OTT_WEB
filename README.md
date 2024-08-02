@@ -12,6 +12,7 @@
 | **프레임워크/라이브러리** | React, TailwindCSS, SWR, Axios, React Router DOM |
 | **버전 관리**    | Git, GitHub                                  |
 | **커뮤니케이션** | Notion, KakaoTalk                           |
+| **배포** | AZURE                           |
 
 ![logo](/public/devlogo.png)
 
