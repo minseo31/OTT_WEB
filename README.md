@@ -13,6 +13,8 @@
 | **버전 관리**    | Git, GitHub                                  |
 | **커뮤니케이션** | Notion, KakaoTalk                           |
 
+![logo](/public/devlogo.png)
+
 
 ## 팀원 🧑‍🤝‍🧑
 - **Developer**: 김병찬, 김민서
