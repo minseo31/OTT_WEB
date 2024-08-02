@@ -21,7 +21,9 @@ const SignMembershipModal = ({
   openModal,
   setOpenModal,
   setMembership,
+  membership,
 }: SignMembershipBoxPropsType) => {
+  console.log(membership);
   return (
     <div className={`${signMembershipModalStyle}`}>
       <Overlay />
@@ -57,7 +59,8 @@ const SignMembershipModal = ({
           handleMembershipModalOpen(
             setOpenModal,
             MembershipData.id,
-            setMembership
+            setMembership,
+            false
           )
         }
       >
@@ -68,3 +71,4 @@ const SignMembershipModal = ({
 };
 
 export default SignMembershipModal;
+
