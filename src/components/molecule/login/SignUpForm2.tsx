@@ -34,11 +34,15 @@ const SignUpForm2 = ({
     setMembershipName(membershipBox[0].id);
   }, [setMembershipName, membershipBox]);
 
+    useEffect(() => {
+    setMembershipName(membershipBox[0].id);
+  }, [setMembershipName, membershipBox]);
+
   useEffect(() => {
     const membershipAmount =
-      membership === "a_membership"
+      membershipBox[1].id === "a_membership"
         ? 5500
-        : membership === "s_membership"
+        : membershipBox[1].id === "s_membership"
         ? 13500
         : 17000;
 
@@ -46,7 +50,7 @@ const SignUpForm2 = ({
       ...prev,
       amount: membershipAmount,
     }));
-  }, [membership, setSignUpData]);
+  }, [membership, setSignUpData, membershipBox]);
 
   const prevMembership = () => {
     setMembershipBox((prev) => {
