@@ -111,7 +111,8 @@ const SignUpForm3 = ({
       expirationPeriodValid &&
       nameValid &&
       cardPwValid &&
-      isCheck
+      isCheck &&
+      dropdownSelection,
     ) {
       handleSignLevel(setSignLevel, 4);
       // 비동기 서버요청 값을 변경
