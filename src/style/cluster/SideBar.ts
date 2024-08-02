@@ -57,4 +57,4 @@ export const viewingHistoryContentBoxStyle =
   "w-full h-full flex flex-col gap-4";
 
 // 시청 기록 포스터
-export const viewingHistoryPostStyle = "w-full h-auto object-cover";
+export const viewingHistoryPostStyle = "w-[50px] h-auto object-cover";
