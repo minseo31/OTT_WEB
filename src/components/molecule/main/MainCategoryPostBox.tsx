@@ -1,19 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
-import { mainCategoryPostBoxStyle } from '../../../style/molecule/main/category';
-import { MainData } from '../../../type/data/MainData';
+import { useEffect, useRef, useState } from "react";
 import {
-  MainCategorysPropsType,
-} from '../../../type/props/main';
-import MainCategoryPost from './MainCategoryPost';
+  mainCategoryPostBoxStyle,
+  mainCategoryPostStyle,
+} from "../../../style/molecule/main/category";
+import { MainData } from "../../../type/data/MainData";
+import { MainCategorysPropsType } from "../../../type/props/main";
+import MainCategoryPost from "./MainCategoryPost";
 import {
   categoryScrollMouseDown,
   categoryScrollMouseLeave,
   categoryScrollMouseMove,
   categoryScrollMouseUp,
-} from '../../../event/main/categoryScrollEvnet';
-import { MemberDataType } from '../../../type/service/get/member';
-import SubText from '../../atom/text/SubText';
-import SubTitle from '../../atom/text/SubTitle';
+} from "../../../event/main/categoryScrollEvnet";
+import { MemberDataType } from "../../../type/service/get/member";
+import SubText from "../../atom/text/SubText";
+import SubTitle from "../../atom/text/SubTitle";
+import ModalBtn from "../../atom/button/ModalBtn";
 
 // 카테고리 포스터 박스
 const MainCategoryPostBox = ({
@@ -38,7 +40,7 @@ const MainCategoryPostBox = ({
   const [viewData, setViewData] = useState<MemberDataType[]>([]);
 
   useEffect(() => {
-    const viewHistory = localStorage.getItem('ViewingHistory');
+    const viewHistory = localStorage.getItem("ViewingHistory");
     const history: MainData[] = viewHistory ? JSON.parse(viewHistory) : [];
 
     if (loginMember) {
@@ -73,7 +75,7 @@ const MainCategoryPostBox = ({
         }))
       );
     }
-  }, [loginMember, viewingHistory, modalContent]);
+  }, [viewingHistory, modalContent, loginMember]);
 
   const [demo, setDemo] = useState<boolean>(false);
 
@@ -86,11 +88,11 @@ const MainCategoryPostBox = ({
   }, [setCategoryRef, categoryRef]);
 
   // 시청 기록 렌더링
-  if (title === '시청기록') {
+  if (title === "시청기록") {
     return (
       <div
         className={`${mainCategoryPostBoxStyle}`}
-        style={{ scrollbarColor: '#E50914 black', scrollbarWidth: 'thin' }}
+        style={{ scrollbarColor: "#E50914 black", scrollbarWidth: "thin" }}
         ref={categoryRef}
         onMouseDown={(e) =>
           categoryScrollMouseDown(
@@ -124,9 +126,10 @@ const MainCategoryPostBox = ({
                 setClickMovie={setClickMovie}
                 setWishState={setDemo}
                 wishState={demo}
-                title=""
+                title="시청기록"
                 setLoginMember={setLoginMember}
                 viewingHistory={viewingHistory}
+                i={i}
               />
             </span>
           ))
@@ -148,7 +151,7 @@ const MainCategoryPostBox = ({
     ) : (
       <div
         className={`${mainCategoryPostBoxStyle}`}
-        style={{ scrollbarColor: '#E50914 black', scrollbarWidth: 'thin' }}
+        style={{ scrollbarColor: "#E50914 black", scrollbarWidth: "thin" }}
         ref={categoryRef}
         onMouseDown={(e) =>
           categoryScrollMouseDown(
@@ -200,7 +203,7 @@ const MainCategoryPostBox = ({
   return (
     <div
       className={`${mainCategoryPostBoxStyle}`}
-      style={{ scrollbarColor: '#E50914 black', scrollbarWidth: 'thin' }}
+      style={{ scrollbarColor: "#E50914 black", scrollbarWidth: "thin" }}
       ref={categoryRef}
       onMouseDown={(e) =>
         categoryScrollMouseDown(
