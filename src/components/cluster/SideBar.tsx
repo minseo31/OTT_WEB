@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   sideBarListBoxStyle,
   sideBarListBoxStyleMain,
@@ -9,23 +9,23 @@ import {
   sideBarStyle,
   sideBarStyleS,
   viewingHistoryContainerStyle,
-} from '../../style/cluster/SideBar';
-import Fulllogo from '../atom/logo/Fulllogo';
-import SideBarListBox from '../molecule/sidebar/SideBarListBox';
-import Homeicon from '../icon/Homeicon';
-import Arrowicon from '../icon/Arrowicon';
-import Usericon from '../icon/Usericon';
-import { handleSideBarOpen } from '../../event/main/sideBarEvent';
-import Shortlogo from '../atom/logo/Shortlogo';
-import { SideBarPropsType } from '../../type/props/propfile';
-import Categoryicon from '../icon/Categoryicon';
-import { searchInputFocusEvent } from '../../event/main/searchEvnet';
-import { genreContainerOpenEvent } from '../../event/main/GenreEvnet';
-import { Link, useParams } from 'react-router-dom';
-import ViewingHistory from '../molecule/sidebar/ViewingHistory';
-import SubTitle from '../atom/text/SubTitle';
-import SubText from '../atom/text/SubText';
-import MainText from '../atom/text/MainText';
+} from "../../style/cluster/SideBar";
+import Fulllogo from "../atom/logo/Fulllogo";
+import SideBarListBox from "../molecule/sidebar/SideBarListBox";
+import Homeicon from "../icon/Homeicon";
+import Arrowicon from "../icon/Arrowicon";
+import Usericon from "../icon/Usericon";
+import { handleSideBarOpen } from "../../event/main/sideBarEvent";
+import Shortlogo from "../atom/logo/Shortlogo";
+import { SideBarPropsType } from "../../type/props/propfile";
+import Categoryicon from "../icon/Categoryicon";
+import { searchInputFocusEvent } from "../../event/main/searchEvnet";
+import { genreContainerOpenEvent } from "../../event/main/GenreEvnet";
+import { Link, useParams } from "react-router-dom";
+import ViewingHistory from "../molecule/sidebar/ViewingHistory";
+import SubTitle from "../atom/text/SubTitle";
+import SubText from "../atom/text/SubText";
+import MainText from "../atom/text/MainText";
 
 // 사이드 바
 const SideBar = ({
@@ -50,11 +50,11 @@ const SideBar = ({
 
   // 장르 컨테이너 등장
   useEffect(() => {
-    if (isPage === 's4') {
+    if (isPage === "s4") {
       genreContainerOpenEvent(setGenreOpen, true);
     }
 
-    const viewingHistory = localStorage.getItem('ViewingHistory');
+    const viewingHistory = localStorage.getItem("ViewingHistory");
 
     if (viewingHistory) {
       setViewingHistory(JSON.parse(viewingHistory));
@@ -81,7 +81,7 @@ const SideBar = ({
           isOpen ? sideBarListBoxStyle : sideBarListBoxStyleS
         } transition-all duration-300`}
       >
-        <Link 
+        <Link
           to="/"
           onClick={() => {
             setIsPage("s1");
@@ -98,7 +98,7 @@ const SideBar = ({
         </Link>
         <div
           className={`${sideBarListBoxStyleMain} ${
-            isOpen ? 'gap-0' : 'gap-8'
+            isOpen ? "gap-0" : "gap-8"
           } transition-all duration-300`}
           onClick={() => genreContainerOpenEvent(setGenreOpen, false)}
         >
@@ -116,7 +116,7 @@ const SideBar = ({
           text="프로필"
           icon={<Usericon />}
           isOpen={isOpen}
-          link={`/profile/${parmId !== null ? parmId : 'NotUserId'}`} // null일 경우 에러 문자열로 처리
+          link={`/profile/${parmId !== null ? parmId : "NotUserId"}`} // null일 경우 에러 문자열로 처리
           isPage={isPage}
           setIsPage={setIsPage}
           id="s2"
@@ -138,12 +138,15 @@ const SideBar = ({
       </div>
       <div
         className={`${viewingHistoryContainerStyle} ${
-          isOpen ? 'px-8' : 'px-2'
+          isOpen ? "px-4" : "px-2"
         } `}
       >
         {/* 시청 기록 */}
-        <div className="w-full h-fit border-b-2 border-[#E50914] py-2">
-          <MainText text="시청기록" align={isOpen ? "text-start" : "text-center"} />
+        <div className="w-full h-fit border-b-2 border-[#E50914] py-2 transition-all duration-300">
+          <MainText
+            text="시청기록"
+            align={isOpen ? "text-start" : "text-center"}
+          />
         </div>
         <ViewingHistory
           viewingHistory={viewingHistory}
@@ -164,10 +167,11 @@ const SideBar = ({
         }`}
         onClick={() => handleSideBarOpen(setIsOpen)}
       >
-        <Arrowicon direction={isOpen ? 'rotate-180' : 'rotate-0'} />
+        <Arrowicon direction={isOpen ? "rotate-180" : "rotate-0"} />
       </div>
     </aside>
   );
 };
 
 export default SideBar;
+
