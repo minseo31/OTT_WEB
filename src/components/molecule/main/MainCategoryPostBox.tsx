@@ -114,7 +114,7 @@ const MainCategoryPostBox = ({
         onMouseLeave={(e) => categoryScrollMouseLeave(e)}
       >
         {viewData.length > 0 ? (
-          viewData.map((history: MemberDataType) => (
+          viewData.map((history: MemberDataType, i) => (
             <span key={String(history.movie_id) + i}>
               <MainCategoryPost
                 setTeaserModal={setTeaserModal}
