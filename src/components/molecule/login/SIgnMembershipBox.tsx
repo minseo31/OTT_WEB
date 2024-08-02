@@ -1,26 +1,38 @@
-import { useState } from "react";
 import { handleMembershipModalOpen } from "../../../event/login/modalOpenEvent";
 import { subTextStyile } from "../../../style/atom/text";
 import {
   signMembershipBoxStyle,
   signMembershipTextBoxStyle,
 } from "../../../style/molecule/login/container";
-import { SignMembershipBoxPropsType } from "../../../type/props/login";
+import {
+  MembershipType,
+  SignMembershipBoxPropsType,
+} from "../../../type/props/login";
 import SubText from "../../atom/text/SubText";
 import SignMembershipModal from "../../modal/SignMembershipModal";
 import Section3MembershipLabel from "../home/section3/Section3MembershipLabel";
+import {
+  IsSideBarOpenStateType,
+  MembershgipModalStateType,
+} from "../../../type/state";
 
-// 가입하기 멤버쉽 선택 박스
+type PropsType = {
+  MembershipData: MembershipType;
+  openModal: boolean;
+  setOpenModal: IsSideBarOpenStateType;
+  setMembership: (id: "p_membership" | "s_membership" | "a_membership") => void; // Updated type
+  membership: "p_membership" | "s_membership" | "a_membership";
+};
+
 const SignMembershipBox = ({
   MembershipData,
   openModal,
   setOpenModal,
   setMembership,
   membership,
-}: SignMembershipBoxPropsType) => {
+}: PropsType) => {
   return (
     <div className={`${signMembershipBoxStyle}`}>
-      {/* 라벨 */}
       <Section3MembershipLabel
         width="350px"
         height="100px"
@@ -32,32 +44,25 @@ const SignMembershipBox = ({
       </div>
       <span
         className={`${subTextStyile} underline`}
-        onClick={() =>
-          handleMembershipModalOpen(
-            setOpenModal,
-            MembershipData.id,
-            setMembership
-          )
-        }
+        onClick={() => {
+          setMembership(MembershipData.id); // Update membership ID
+          setOpenModal(true); // Open modal
+        }}
       >
         자세히 알아보기
       </span>
-      {/* 자세히 보기 모달 */}
-      {openModal ? (
-        MembershipData.id === membership && (
-          <SignMembershipModal
-            MembershipData={MembershipData}
-            openModal={openModal}
-            setOpenModal={setOpenModal}
-            setMembership={setMembership}
-            membership={membership}
-          />
-        )
-      ) : (
-        <></>
+      {openModal && MembershipData.id === membership && (
+        <SignMembershipModal
+          MembershipData={MembershipData}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          setMembership={setMembership}
+          membership={membership}
+        />
       )}
     </div>
   );
 };
 
 export default SignMembershipBox;
+
