@@ -1,6 +1,3 @@
-package com.example.ott_server.controller.memberprofile;
-
-import com.example.ott_server.dto.ApiResponse;
 import com.example.ott_server.dto.PasswordChangeDTO;
 import com.example.ott_server.dto.memberprofile.MemberProfileDTO;
 import com.example.ott_server.service.memberprofile.MemberProfileService;
@@ -26,8 +23,17 @@ public class MemberProfileController {
         try {
             int memberId = memberProfileDTO.getMember_id();
             ResultStatus resultStatus = memberProfileService.addMemberProfile(memberProfileDTO, memberId);
-            apiResponse = new ApiResponse<>(ResponseStatus.SUCCESS, "성공", memberProfileDTO);
-            return ResponseEntity.ok(apiResponse);
+
+            if (resultStatus == ResultStatus.SUCCESS) {
+                apiResponse = new ApiResponse<>(ResponseStatus.SUCCESS, "성공", memberProfileDTO);
+                return ResponseEntity.ok(apiResponse);
+            } else if (resultStatus == ResultStatus.FAIL) {
+                apiResponse = new ApiResponse<>(ResponseStatus.FAIL, "멤버쉽 제한 초과", null);
+                return ResponseEntity.badRequest().body(apiResponse);
+            } else {
+                apiResponse = new ApiResponse<>(ResponseStatus.ERROR, "에러", null);
+                return ResponseEntity.status(500).body(apiResponse);
+            }
         } catch (IllegalArgumentException e) {
             apiResponse = new ApiResponse<>(ResponseStatus.FAIL, "실패", null);
             return ResponseEntity.ok(apiResponse);
