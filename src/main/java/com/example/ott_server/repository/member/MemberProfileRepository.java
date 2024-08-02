@@ -12,4 +12,7 @@ public interface MemberProfileRepository extends JpaRepository<MemberProfile, In
     List<MemberProfile> findByMemberId(int memberId);
 
     MemberProfile findByMemberEmail(String memberEmail);
+
+    // 멤버프로필에 등록된 갯수
+    int countByMemberId(int memberId);
 }
