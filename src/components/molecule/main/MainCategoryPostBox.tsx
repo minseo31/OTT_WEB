@@ -35,36 +35,7 @@ const MainCategoryPostBox = ({
   const [scrollLeft, setScrollLeft] = useState<number | null>(null);
 
   // 시청기록의 초기 데이터
-  const [viewData, setViewData] = useState<MemberDataType[]>([
-    {
-      id: 0,
-      email: '',
-      profile_id: 0,
-      member_name: '',
-      member_email: '',
-      wishlist_id: 0,
-      movie_id: 0,
-      title: '',
-      age_rating: '전체 관람가',
-      runtime: '',
-      rating: '',
-      teaser_url: '',
-      poster_img: '',
-      plot_summary: '',
-      release_date: '',
-      directors: '',
-      production_companies: '',
-      genres: '',
-      categories: '신규 콘텐츠',
-      membership_level: '프리미엄(Premium) 4K+HDR',
-      membership_amount: '',
-      card_number: '',
-      expiry_date: '',
-      payment_date: '',
-      card_name: '',
-      payment_amount: 0,
-    },
-  ]);
+  const [viewData, setViewData] = useState<MemberDataType[]>([]);
 
   useEffect(() => {
     const viewHistory = localStorage.getItem('ViewingHistory');
@@ -102,7 +73,7 @@ const MainCategoryPostBox = ({
         }))
       );
     }
-  }, [loginMember, viewingHistory]);
+  }, [loginMember, viewingHistory, modalContent]);
 
   const [demo, setDemo] = useState<boolean>(false);
 
