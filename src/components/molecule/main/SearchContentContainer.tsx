@@ -17,7 +17,7 @@ const SearchContentContainer = ({
       className={`${searchContentContainerStyle}`}
       style={{ scrollbarColor: "#E50914 black", scrollbarWidth: "thin" }}
     >
-      {filterData?.map((movie) => (
+      {filterData?.map((movie, i) => (
         <div
           key={(String(movie.movieId), i)}
           // 티저 모달 등장 이벤트 핸들러
