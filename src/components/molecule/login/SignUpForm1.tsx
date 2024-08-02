@@ -21,15 +21,15 @@ const SignUpForm1 = ({ setSignLevel, setSignUpData }: SignLevelState) => {
   //이메일, 패스워드 상태 및 유효성 검사
   const [email, setEmail] = useState<string>("");
   const [signEmail, setSignEmail] = useState<string>("");
-  const [emailValid, setEmailValid] = useState<boolean>(true);
+  const [emailValid, setEmailValid] = useState<boolean>(false);
 
   const [pw, setPw] = useState<string>("");
-  const [pwValid, setPwValid] = useState<boolean>(true);
+  const [pwValid, setPwValid] = useState<boolean>(false);
 
   const [pwCheck, setPwCheck] = useState<string>("");
-  const [pwValidCheck, setPwValidCheck] = useState<boolean>(true);
+  const [pwValidCheck, setPwValidCheck] = useState<boolean>(false);
 
-  const [pwMatch, setPwMatch] = useState<boolean>(true);
+  const [pwMatch, setPwMatch] = useState<boolean>(false);
 
   // 개인정보 처리 방침 모달
   const [policyModal, setPolicyModal] = useState<boolean>(false);
