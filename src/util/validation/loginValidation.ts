@@ -9,7 +9,7 @@ export const validateEmail = (value: string): boolean => {
 // 패스워드 유효성 검사 함수
 export const validatePassword = (value: string): boolean => {
   // 최소 8자리, 숫자, 영문자, 특수문자 모두 포함하는 정규식
-  const regex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W_]).{8,}$/;
+  const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@!?])[a-zA-Z\d@!?]+$/;
   return regex.test(value);
 };
 
