@@ -93,7 +93,11 @@ const SignUpForm2 = ({
           />
         ))}
       </div>
-      <div onClick={() => handleSignLevel(setSignLevel, 3)}>
+      <div         
+        onClick={() => {
+          handleSignLevel(setSignLevel, 3);
+          setMembershipName(membershipBox[1].id);
+        }}>
         <FormBtn text={signupData2.btn_text} bgColor="bg-main_Red" />
       </div>
     </div>
