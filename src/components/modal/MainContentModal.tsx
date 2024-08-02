@@ -56,11 +56,10 @@ const MainContentModal = ({
   // 찜목록에 존재하는 콘텐츠인지 확인
   useEffect(() => {
     if (loginMember && modalContent) {
-      const wishContent = loginMember.filter((wishlist) => {
+      const wishContent = loginMember.some((wishlist) => {
         return wishlist.movie_id === modalContent.movieId;
       });
-
-      setIsWish(wishContent.length > 0);
+      setIsWish(wishContent);
     }
   }, [loginMember, modalContent, isWishlist]);
 
