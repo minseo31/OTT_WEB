@@ -70,6 +70,7 @@ export type MainCategorysPropsType = {
     React.SetStateAction<MemberDataType[] | undefined>
   >;
   viewingHistory: MainData[];
+  i?: number;
 };
 
 // 배너 Props 타입
