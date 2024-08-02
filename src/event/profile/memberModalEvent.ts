@@ -84,7 +84,15 @@ export const handelMemberAddEvent = (
   setMemberLimitModal: React.Dispatch<React.SetStateAction<boolean>>,
   setMemberAccessModal: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
-  localStorage.getItem("isMember") === "true"
-    ? setMemberAccessModal(true)
-    : setMemberAddMadal(true);
+  const memberData = localStorage.getItem("MemberData");
+
+  if (memberData) {
+    console.log("추가 제한");
+
+    JSON.parse(memberData).length >= memberCount
+      ? setMemberLimitModal(true)
+      : localStorage.getItem("isMember") === "true"
+      ? setMemberAccessModal(true)
+      : setMemberAddMadal(true);
+  }
 };
