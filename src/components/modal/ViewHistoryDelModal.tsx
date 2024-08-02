@@ -32,6 +32,7 @@ const ViewHistoryDelModal = ({
               setViewingHistory([]);
               localStorage.setItem("ViewingHistory", JSON.stringify([]));
               setViewHistoryModalOpen(false);
+              window.location.reload();
             }}
           >
             <SmallBtn text="삭제하기" bgColor="bg-main_Red" />
