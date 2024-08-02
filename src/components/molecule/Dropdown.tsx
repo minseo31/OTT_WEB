@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   dropdownBottomcontentsSecStyle,
   dropdownBottomcontentsStyle,
   dropdownBottomCoverStyle,
   dropdownButtonStyle,
-} from "../../style/dropDownStyle";
-import { dropdownData, signupData3 } from "../../data/loginDatas";
-import { bankLogoStyle, shortLogoStyle } from "../../style/atom/logo";
-import MainText from "../atom/text/MainText";
+} from '../../style/dropDownStyle';
+import { dropdownData, signupData3 } from '../../data/loginDatas';
+import { bankLogoStyle, shortLogoStyle } from '../../style/atom/logo';
+import MainText from '../atom/text/MainText';
 
-const Dropdown: React.FC = () => {
+export type DropdownPropsType = {
+  onChange: (value: React.SetStateAction<string | null>) => void;
+};
+
+const Dropdown = ({onChange}: DropdownPropsType) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const [selectedBank, setSelectedBank] = useState("은행 선택");
+  const [selectedBank, setSelectedBank] = useState('은행 선택');
 
-  const onSelectBank = (bank: string) => {
+  const onSelectBank = (bank:string) => {
     setSelectedBank(bank);
     setIsOpen(false);
+    if (onChange) {
+      onChange(bank); // 선택된 은행을 부모 컴포넌트로 전달
+    }
   };
 
   return (
