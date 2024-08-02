@@ -7,8 +7,11 @@ import {
 export const handleMembershipModalOpen = (
   setOpenModal: IsSideBarOpenStateType,
   MembershipDataId: "p_membership" | "s_membership" | "a_membership",
-  setMembership: MembershgipModalStateType
+  setMembership: (id: "p_membership" | "s_membership" | "a_membership") => void,
+  bool: boolean
 ) => {
-  setMembership(MembershipDataId);
+  if (bool) {
+    setMembership(MembershipDataId);
+  }
   setOpenModal((prev) => !prev);
 };
