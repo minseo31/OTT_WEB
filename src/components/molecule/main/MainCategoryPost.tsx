@@ -58,7 +58,7 @@ const MainCategoryPost = ({
   useEffect(() => {
     loginData &&
       setWishData({
-        movieId: loginData.movie_id + 2000,
+        movieId: loginData.movie_id,
         movieTitle: loginData.title,
         releaseDate: loginData.release_date,
         genreNames: loginData.genres,
