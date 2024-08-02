@@ -35,20 +35,38 @@ public class MemberProfileServiceImpl implements MemberProfileService{
     @Override
     @Transactional
     public ResultStatus addMemberProfile(MemberProfileDTO memberProfileDTO, int memberId) {
-        Member member = new Member();
-        member.setId(memberId);
+        try {
+            // 멤버 조회
+            Optional<Member> optionalMember = memberRepository.findById(memberId);
 
-        MemberProfile memberProfile = new MemberProfile();
-        memberProfile.setMember_name(memberProfileDTO.getMember_name());
-        memberProfile.setMember_email(memberProfileDTO.getMember_email());
+            // 멤버가 존재하지 않으면 예외 발생
+            Member member = optionalMember.orElseThrow(() -> new IllegalArgumentException("Member not found"));
 
-        // 비밀번호를 암호화하지 않고 저장
-        memberProfile.setMember_password(memberProfileDTO.getMember_password());
+            // 현재 멤버쉽에 따른 회원 수 제한
+            int membershipId = member.getMembership().getId();
+            long currentMemberProfileCount = memberProfileRepository.countByMemberId(memberId);
 
-        memberProfile.setMember(member);
+            if ((membershipId == 1 && currentMemberProfileCount >= 2) ||
+                    (membershipId == 2 && currentMemberProfileCount >= 2) ||
+                    (membershipId == 3 && currentMemberProfileCount >= 4)) {
+                return ResultStatus.FAIL;
+            }
 
-        memberProfileRepository.save(memberProfile);
-        return ResultStatus.SUCCESS;
+            MemberProfile memberProfile = new MemberProfile();
+            memberProfile.setMember_name(memberProfileDTO.getMember_name());
+            memberProfile.setMember_email(memberProfileDTO.getMember_email());
+
+            // 비밀번호를 암호화하지 않고 저장
+            memberProfile.setMember_password(memberProfileDTO.getMember_password());
+
+            memberProfile.setMember(member);
+
+            memberProfileRepository.save(memberProfile);
+            return ResultStatus.SUCCESS;
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return ResultStatus.FAIL; // 예외 발생 시 실패 상태 반환
+        }
     }
 
     // 멤버프로필 삭제
