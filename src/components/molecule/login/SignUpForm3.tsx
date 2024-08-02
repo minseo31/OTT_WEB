@@ -176,7 +176,7 @@ const SignUpForm3 = ({
       {/* 이름 입력창 */}
       <div>
         {nameValid ? null : (
-          <SmallTextRed text="이름이 올바르지 않습니다." align="text-center" />
+          <SmallTextRed text="이름은 한글 또는 영문자만 포함되며 1자에서 10자 이하이어야 합니다." align="text-center" />
         )}
         <Input
           ple={signupData3.ples[2].ple}
