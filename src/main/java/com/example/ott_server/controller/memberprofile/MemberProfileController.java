@@ -1,3 +1,6 @@
+package com.example.ott_server.controller.memberprofile;
+
+import com.example.ott_server.dto.ApiResponse;
 import com.example.ott_server.dto.PasswordChangeDTO;
 import com.example.ott_server.dto.memberprofile.MemberProfileDTO;
 import com.example.ott_server.service.memberprofile.MemberProfileService;
