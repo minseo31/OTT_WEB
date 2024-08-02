@@ -19,7 +19,7 @@ const SearchContentContainer = ({
     >
       {filterData?.map((movie) => (
         <div
-          key={movie.movieId}
+          key={(String(movie.movieId), i)}
           // 티저 모달 등장 이벤트 핸들러
           onClick={() =>
             handelTeaserModalOpen(
