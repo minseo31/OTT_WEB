@@ -144,7 +144,7 @@ const MainCategoryPostBox = ({
       >
         {viewData.length > 0 ? (
           viewData.map((history: MemberDataType) => (
-            <span key={history.movie_id}>
+            <span key={String(history.movie_id) + i}>
               <MainCategoryPost
                 setTeaserModal={setTeaserModal}
                 loginData={history}
