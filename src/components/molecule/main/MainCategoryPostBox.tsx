@@ -176,7 +176,7 @@ const MainCategoryPostBox = ({
       >
         {/* 찜한 상품 리스트를 따로 저장하여 allData 부분으로 전달해서 렌더링 해야함 */}
         {loginMember.length > 0 ? (
-          loginMember?.map((loginData: MemberDataType) => (
+          loginMember?.map((loginData: MemberDataType, i) => (
             <span key={(String(loginData.movie_id), i)}>
               <MainCategoryPost
                 setTeaserModal={setTeaserModal}
