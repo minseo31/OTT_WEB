@@ -53,6 +53,9 @@ const SignUpForm3 = ({
   const [vailModal, setVailModal] = useState<boolean>(false);
   // 유효성 검사 실패 메세지
   const [vailMSG, setVailMSG] = useState<string>("");
+  
+  const [dropdownSelection, setDropdownSelection] = useState<string | null>(null);
+
 
   // 회원가입 정보 멤버쉽 데이터 저장
   useEffect(() => {
@@ -217,7 +220,7 @@ const SignUpForm3 = ({
           label={signupData3.check_label}
           onClick={() => setModalOpen((prev) => !prev)}
         />
-        <Dropdown />
+        <Dropdown onChange={(selection) => setDropdownSelection(selection)} />
       </div>
       {/* 가입하기 버튼 */}
       <div onClick={() => handleSubmit(signUpData)}>
