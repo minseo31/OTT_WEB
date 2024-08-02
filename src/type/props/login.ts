@@ -17,7 +17,7 @@ export type SignMembershipBoxPropsType = {
   MembershipData: MembershipType;
   openModal: boolean;
   setOpenModal: IsSideBarOpenStateType;
-  setMembership: MembershgipModalStateType;
+  setMembership: (id: "p_membership" | "s_membership" | "a_membership") => void;
   membership: "p_membership" | "s_membership" | "a_membership";
 };
 
