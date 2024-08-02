@@ -15,7 +15,7 @@ export const subTextStyile =
 export const PointTextStyle = "text-white underline";
 
 // 제일 작은 크기의 텍스트
-export const SmallTextStyle = "text-[10px] text-white whitewarp-normal";
+export const SmallTextStyle = "text-[11px] text-white whitewarp-normal";
 
 // 제일 작은 크기의 텍스트 red
-export const RedSmallTextStyle = "text-[10px] text-red-600";
+export const RedSmallTextStyle = "text-[11px] text-red-600";
