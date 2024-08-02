@@ -12,6 +12,7 @@ import { searchInputFocusEvent } from "../../../event/main/searchEvnet";
 import { ageRatingImgStateType } from "../../../type/state";
 import { ageRatingData } from "../../../data/mainDatas";
 import { ageRatingVali } from "../../../util/validation/main/ageVali";
+import ModalBtn from '../../atom/button/ModalBtn';
 
 // 검색 컨테이너
 const SearchContainer = ({
@@ -40,7 +41,12 @@ const SearchContainer = ({
         {/* 검색 콘텐츠 창 오픈 시 뒤로가기 버튼 렌더링 */}
         {searchOpen && (
           <div onClick={() => searchInputFocusEvent(setSearchOpen, true)}>
-            <Arrowicon direction="rotate-0" />
+              <ModalBtn
+                bgColor="bg-main_Red"
+                border="border-soild border-white border-2"
+                text="닫기"
+                textColor="white"
+            />
           </div>
         )}
       </div>
