@@ -143,7 +143,7 @@ const SideBar = ({
       >
         {/* 시청 기록 */}
         <div className="w-full h-fit border-b-2 border-[#E50914] py-2">
-          <MainText text="시청기록" align="text-start" />
+          <MainText text="시청기록" align={isOpen ? "text-start" : "text-center"} />
         </div>
         <ViewingHistory
           viewingHistory={viewingHistory}
