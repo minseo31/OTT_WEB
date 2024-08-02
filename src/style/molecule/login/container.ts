@@ -17,6 +17,10 @@ export const loginFormStyle =
 export const signupFormStyle =
   "w-[450px] h-[90vh] flex flex-col justify-between items-center gap-2 py-[50px] rounded-[10px] bg-black1_07 relative z-30 box-border";
 
+// 멤버추가 폼
+export const inputMemberStyle =
+  'w-[450px] h-[90vh] flex flex-col justify-between items-center gap-2 py-[50px] rounded-[10px] relative z-30 box-border';
+
 // 가입하기 텍스트 박스
 export const signupTextBoxStyle = "w-fit h-fit flex gap-2";
 
