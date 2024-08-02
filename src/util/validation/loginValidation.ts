@@ -36,7 +36,16 @@ export const validateCardNum = (value: string) => /^[0-9]{16}$/.test(value);
 // 유효기간: MM/YY 형식 확인
 export const validateExpirationPeriod = (value: string) =>
   /^(0[1-9]|1[0-2])\/\d{2}$/.test(value);
-// 이름: 빈 문자열이 아닌지 확인
-export const validateName = (value: string) => value.trim() !== "";
+// 이름 유효성 검사
+export const validateName = (value: string) => {
+  // 입력 값에서 공백 제거 후 유효성 검사
+  const trimmedValue = value.trim();
+
+  // 한글 또는 영문자로만 구성되며 1자 이상 10자 이하인지 검사하는 정규 표현식
+  const regex = /^[가-힣a-zA-Z]{1,10}$/;
+
+  // 빈 문자열이 아니고, 정규 표현식에 맞는지 검사
+  return trimmedValue !== '' && regex.test(trimmedValue);
+};
 // 카드 비밀번호: 4자리 숫자 확인
 export const validateCardPw = (value: string) => /^[0-9]{4}$/.test(value);
