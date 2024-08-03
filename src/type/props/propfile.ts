@@ -36,6 +36,9 @@ export type SideBarPropsType = {
   setIsWish: React.Dispatch<React.SetStateAction<boolean>>;
   setViewingHistory: React.Dispatch<React.SetStateAction<MainData[]>>;
   viewingHistory: MainData[];
+  setMemberData: React.Dispatch<
+    React.SetStateAction<MemberResponseType | null>
+  >;
 };
 
 // 프로필 컨테이너
@@ -156,6 +159,10 @@ export type ProfileWishContainerPropsType = {
     React.SetStateAction<MemberDataType[] | undefined>
   >;
   viewingHistory: MainData[];
+  setMemberData: React.Dispatch<
+    React.SetStateAction<MemberResponseType | null>
+  >;
+  memberData?: MemberResponseType | null;
 };
 
 // 메인 계정 모달 Props 타입
