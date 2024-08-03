@@ -1,6 +1,5 @@
-
 import { MainData } from "../data/MainData";
-import { MemberDataType } from "../service/get/member";
+import { MemberDataType, MemberResponseType } from "../service/get/member";
 import { MovieResponseType } from "../service/get/movie";
 import { ageRatingImgStateType, GenreChoiceStateType } from "../state";
 
@@ -45,6 +44,10 @@ export type MainTeaserModalPropsType = {
   setIsWish: React.Dispatch<React.SetStateAction<boolean>>;
   setViewingHistory: React.Dispatch<React.SetStateAction<MainData[]>>;
   teaserModal: boolean;
+  setMemberData: React.Dispatch<
+    React.SetStateAction<MemberResponseType | null>
+  >;
+  memberData?: MemberResponseType | null;
 };
 
 // 카테고리 Props 타입
