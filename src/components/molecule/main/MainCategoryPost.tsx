@@ -74,8 +74,6 @@ const MainCategoryPost = ({
       });
   }, [loginData, demo]);
 
-  console.log(viewData);
-
   if (loginData && setClickMovie) {
     return (
       <div
