@@ -40,6 +40,8 @@ const ProfilePage = ({
   setIsWish,
   setViewingHistory,
   viewingHistory,
+  setMemberData,
+  memberData,
 }: SideBarPropsType) => {
   // // 이메일 데이터 요청
   // const { data: emailData, error: emailError } = useSWR<EmailResponseType>(
@@ -66,27 +68,6 @@ const ProfilePage = ({
     };
 
     fetchMemberData();
-  }, [isPage, isLogin, userEmail, isMember, wishState]);
-
-  // 멤버 데이터
-  const [memberData, setMemberData] = useState<MemberResponseType | null>(null);
-
-  useEffect(() => {
-    // 멤버 데이터 서버 요청
-    const fetchMemberData = async (email: string) => {
-      try {
-        const data = await fetchMember(email);
-        setMemberData(data);
-      } catch (error) {}
-    };
-
-    const email = localStorage.getItem("userEmail");
-
-    if (email) {
-      fetchMemberData(email);
-    }
-
-    console.log(memberData);
   }, [isPage, isLogin, userEmail, isMember, wishState]);
 
   // 로그인 유저의 멤버 데이터
@@ -156,6 +137,7 @@ const ProfilePage = ({
         setIsWish={setIsWish}
         setViewingHistory={setViewingHistory}
         viewingHistory={viewingHistory}
+        setMemberData={setMemberData}
       />
       <div className={`${profileContnetContainer}`}>
         {/* 프로필 정보 */}
@@ -191,6 +173,8 @@ const ProfilePage = ({
           title="찜한 콘텐츠"
           setLoginMember={setLoginMember}
           viewingHistory={viewingHistory}
+          setMemberData={setMemberData}
+          memberData={memberData}
         />
         {/* 시청기록 */}
         <ProfileWishContainer
@@ -206,9 +190,12 @@ const ProfilePage = ({
           title="시청기록"
           setLoginMember={setLoginMember}
           viewingHistory={viewingHistory}
+          setMemberData={setMemberData}
+          memberData={memberData}
         />
       </div>
     </main>
   );
 };
 export default ProfilePage;
+
