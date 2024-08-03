@@ -41,6 +41,7 @@ export const wishlistEvent = async (
   // 찜 버튼 상태 변경
   setIsWish((prev) => !prev);
   setWishState((prev) => !prev);
+  localStorage.setItem("loginData", JSON.stringify(loginMember));
 
   setWishMSGModal("opacity-100");
   // 타이머 ID를 저장
@@ -50,6 +51,4 @@ export const wishlistEvent = async (
 
   // 클린업 함수
   return () => clearTimeout(timer);
-
-  localStorage.setItem("loginData", JSON.stringify(loginMember));
 };
