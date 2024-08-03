@@ -34,6 +34,8 @@ const MainPage = ({
   setIsWish,
   setViewingHistory,
   viewingHistory,
+  setMemberData,
+  memberData,
 }: SideBarPropsType) => {
   // 영화 데이터 요청
   // const { data: movieData, error: movieError } = useSWR<MovieResponseType>(
@@ -107,6 +109,8 @@ const MainPage = ({
     }
   }, [movieData]);
 
+  console.log(teaserModal);
+
   return (
     <div className={`${mainPageStyle}`}>
       {/* 사이드바 */}
@@ -130,6 +134,7 @@ const MainPage = ({
         setIsWish={setIsWish}
         setViewingHistory={setViewingHistory}
         viewingHistory={viewingHistory}
+        setMemberData={setMemberData}
       />
       {/* 검색 */}
       <SearchContainer
@@ -174,13 +179,15 @@ const MainPage = ({
           setIsWish={setIsWish}
           setViewingHistory={setViewingHistory}
           teaserModal={teaserModal}
+          setMemberData={setMemberData}
+          memberData={memberData}
         />
       ) : (
         <></>
       )}
       {/* 찜 추가, 삭제 메세지 모달  */}
       {teaserModal && (
-        <WishModal message={isWish ? "추가" : "삭제"} opacity={wishMSGModal} />
+        <WishModal message={isWish ? "삭제" : "추가"} opacity={wishMSGModal} />
       )}
     </div>
   );
