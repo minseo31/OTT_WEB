@@ -3,17 +3,18 @@
 ## 개발 개요
 - 새로운 OTT 플랫폼 서비스를 제공하기 위해 구축된 서버입니다.
 
-## 개발 스택
-- **프로그래밍 언어:** Java
-- **JDK:** 17
-- **IDE:** IntelliJ IDEA
-- **프레임워크:** Spring Boot 3.3.1
-- **데이터베이스:** MySQL
-- **데이터베이스 클라이언트:** DBeaver
-- **ERD 다이어그램 도구:** DrawSQL
-- **API 테스트 도구:** Postman
-- **인증:** JWT
-- **ORM:** JPA
+- ## 개발 스택 🔧
+| 항목             | 내용                                         |
+|------------------|--------------------------------------------|
+| **개발 환경**    | IntelliJ IDEA , DBeaver                                      |
+| **프로그래밍 언어** | Java(JDK-17)                  |
+| **프레임워크/라이브러리** | Spring Boot 3.3.1, JWT, JPA |
+| **데이터베이스**       | MySQL                         |
+| **ERD**       | DrawSQL                         |
+| **API 테스트 도구**       | Postman                         |
+| **버전 관리**    | Git, GitHub                                  |
+| **커뮤니케이션** | Notion, KakaoTalk                           |
+| **배포** | AZURE                           |
 
 ## 팀원
 - **김민서 (Developer, Project Manager)**
