@@ -21,6 +21,8 @@ const ViewingHistory = ({
   wishState,
   wishMSGModal,
   isOpen,
+  setMemberData,
+  memberData
 }: viewingHistoryContainerPropsType) => {
   // 티저 모달 오픈 상태
   const [teaserModal, setTeaserModal] = useState<boolean>(false);
@@ -86,6 +88,8 @@ const ViewingHistory = ({
           setIsWish={setIsWish}
           setViewingHistory={setViewingHistory}
           teaserModal={teaserModal}
+          setMemberData={setMemberData}
+          memberData={memberData}
         />
       )}
       {/* 찜 추가, 삭제 메세지 모달  */}
@@ -97,4 +101,3 @@ const ViewingHistory = ({
 };
 
 export default ViewingHistory;
-
