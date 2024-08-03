@@ -8,6 +8,7 @@ import MainPage from "./page/MainPage";
 import ErrorPage from "./page/ErrorPage";
 import { MemberDataType, MemberResponseType } from "./type/service/get/member";
 import { MainData } from "./type/data/MainData";
+import { fetchMember } from "./service/get/memberAllService";
 
 const App = () => {
   // 로그인 상태
@@ -35,6 +36,25 @@ const App = () => {
 
   // 시청 기록 데이터
   const [viewingHistory, setViewingHistory] = useState<MainData[]>([]);
+
+  // 멤버 데이터
+  const [memberData, setMemberData] = useState<MemberResponseType | null>(null);
+
+  useEffect(() => {
+    // 멤버 데이터 서버 요청
+    const fetchMemberData = async (email: string) => {
+      try {
+        const data = await fetchMember(email);
+        setMemberData(data);
+      } catch (error) {}
+    };
+
+    const email = localStorage.getItem("userEmail");
+
+    if (email) {
+      fetchMemberData(email);
+    }
+  }, [isPage, isLogin, userEmail, isMember, wishState]);
 
   // 로컬 스토리지애서 로그인 상태를 저장
   useEffect(() => {
@@ -78,6 +98,8 @@ const App = () => {
                   setIsWish={setIsWish}
                   setViewingHistory={setViewingHistory}
                   viewingHistory={viewingHistory}
+                  setMemberData={setMemberData}
+                  memberData={memberData}
                 />
               ) : (
                 // 홈 페이지
@@ -124,6 +146,8 @@ const App = () => {
                 setIsWish={setIsWish}
                 setViewingHistory={setViewingHistory}
                 viewingHistory={viewingHistory}
+                setMemberData={setMemberData}
+                memberData={memberData}
               />
             }
           />
@@ -136,3 +160,4 @@ const App = () => {
 };
 
 export default App;
+
