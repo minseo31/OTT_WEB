@@ -1,6 +1,6 @@
-# 서버
+# 서버 🗄️
 
-## 개발 개요
+## 개발 개요 📜
 - 새로운 OTT 플랫폼 서비스를 제공하기 위해 구축된 서버입니다.
 
 - ## 개발 스택 🔧
@@ -16,20 +16,20 @@
 | **커뮤니케이션** | Notion, KakaoTalk                           |
 | **배포** | AZURE                           |
 
-## 팀원
+## 팀원 🧑‍🤝‍🧑
 - **Developer**: 노유정, 김민서
 - **Project Manager**: 김민서
 - **Data Collector, QA**: 홍석환
 
 ### 업무 및 포지션
-- **김민서 (Developer, Project Manager)**
+- ** 👦🏻 김민서 (Developer, Project Manager)**
     - 계정 데이터 HTTP 응답 비즈니스 로직 구현
     - 콘텐츠 데이터 HTTP 응답 비즈니스 및 콘텐츠 데이터 수집 및 생성 
     - 위시리스트 요청 및 응답 비즈니스 로직 구현
     - 서버 테스트 및 처리
     - 빌드및 배포, 버전 관리
   
-- **노유정 (Developer)**
+- ** 👩🏻 노유정 (Developer)**
     - DB 설계 및 ERD 작성
     - 계정 데이터 HTTP 요청 및 응답 비즈니스 로직 구현
     - 멤버 시스템 요청 및 응답 비즈니스 로직 구현
@@ -40,7 +40,7 @@
     - 무결성, 유효성 검사 처리
     - 시드 데이터 설계
     
-- **홍석환 (Data Collector)**
+- ** 👨🏻‍🦱 홍석환 (Data Collector)**
     - 데이터 수집 및 시드 데이터 설계
  
 ## 개발 기간 및 기획 📝
@@ -62,9 +62,9 @@
 - **문서화 및   :** 8/1 ~ 8/4
 
 
-## DB
+### DB 🗃️
 
-### 회원 (Member) 테이블 : 회원 정보를 저장하는 테이블
+#### 회원 (Member) 테이블 : 회원 정보를 저장하는 테이블
 | 컬럼명         | 데이터 타입  | 설명                       |
 | -------------- | ------------ | -------------------------- |
 | id             | INT          | 회원 ID (PK)               |
@@ -73,7 +73,7 @@
 | password       | VARCHAR(255) | 비밀번호 (NOT NULL)        |
 | membership_id  | INT          | 멤버쉽 ID (FK)             |
 
-### 멤버프로필 (MemberProfile) 테이블 : 회원 프로필 정보를 저장하는 테이블
+#### 멤버프로필 (MemberProfile) 테이블 : 회원 프로필 정보를 저장하는 테이블
 | 컬럼명          | 데이터 타입  | 설명                       |
 | --------------- | ------------ | -------------------------- |
 | id              | INT          | 프로필 ID (PK)             |
@@ -82,14 +82,14 @@
 | member_email    | VARCHAR(255) | 이메일 주소 (UNIQUE, NOT NULL) |
 | member_password | VARCHAR(255) | 비밀번호 (NOT NULL)        |
 
-### 멤버쉽 (Membership) 테이블 : 멤버쉽 정보를 저장하는 테이블
+#### 멤버쉽 (Membership) 테이블 : 멤버쉽 정보를 저장하는 테이블
 | 컬럼명 | 데이터 타입  | 설명               |
 | ------ | ------------ | ------------------ |
 | id     | INT          | 멤버쉽 ID (PK)     |
 | level  | VARCHAR(50)  | 멤버쉽 등급        |
 | amount | DECIMAL(10,2)| 결제 금액          |
 
-### 찜 (Wishlist) 테이블 : 회원들의 찜 목록 정보를 저장하는 테이블
+#### 찜 (Wishlist) 테이블 : 회원들의 찜 목록 정보를 저장하는 테이블
 | 컬럼명            | 데이터 타입 | 설명                       |
 | ----------------- | ----------- | -------------------------- |
 | id                | INT         | 찜목록 ID (PK)             |
@@ -97,7 +97,7 @@
 | member_profile_id | INT         | 멤버프로필 ID (FK)         |
 | movie_id          | INT         | 영화 ID (FK)               |
 
-### 결제 (Payment) 테이블 : 결제 정보를 저장하는 테이블
+#### 결제 (Payment) 테이블 : 결제 정보를 저장하는 테이블
 | 컬럼명       | 데이터 타입  | 설명                |
 | ------------ | ------------ | ------------------- |
 | id           | INT          | 결제 ID (PK)        |
@@ -108,7 +108,7 @@
 | card_name    | VARCHAR(50)  | 카드 이름           |
 | amount       | DECIMAL(10,2)| 결제 금액           |
 
-### 영화 (Movie) 테이블 : 영화 정보를 저장하는 테이블
+#### 영화 (Movie) 테이블 : 영화 정보를 저장하는 테이블
 | 컬럼명        | 데이터 타입  | 설명                |
 | ------------- | ------------ | ------------------- |
 | id            | INT          | 영화 ID (PK)        |
@@ -121,55 +121,55 @@
 | plot_summary  | TEXT         | 줄거리              |
 | release_date  | VARCHAR(255) | 개봉일              |
 
-### 장르 (Genre) 테이블 : 영화 장르 정보를 저장하는 테이블
+#### 장르 (Genre) 테이블 : 영화 장르 정보를 저장하는 테이블
 | 컬럼명 | 데이터 타입  | 설명          |
 | ------ | ------------ | ------------- |
 | id     | INT          | 장르 ID (PK)  |
 | name   | VARCHAR(50)  | 장르 이름     |
 
-### 영화-장르 (MovieGenre) 테이블 : 영화와 장르 간의 관계를 저장하는 테이블
+#### 영화-장르 (MovieGenre) 테이블 : 영화와 장르 간의 관계를 저장하는 테이블
 | 컬럼명   | 데이터 타입 | 설명            |
 | -------- | ----------- | --------------- |
 | movie_id | INT         | 영화 ID (FK)    |
 | genre_id | INT         | 장르 ID (FK)    |
 
-### 제작사 (ProductionCompany) 테이블 : 제작사 정보를 저장하는 테이블
+#### 제작사 (ProductionCompany) 테이블 : 제작사 정보를 저장하는 테이블
 | 컬럼명 | 데이터 타입  | 설명            |
 | ------ | ------------ | --------------- |
 | id     | INT          | 제작사 ID (PK)  |
 | name   | VARCHAR(255) | 제작사 이름     |
 
-### 영화-제작사 (MovieProduction) 테이블 : 영화와 제작사 간의 관계를 저장하는 테이블
+#### 영화-제작사 (MovieProduction) 테이블 : 영화와 제작사 간의 관계를 저장하는 테이블
 | 컬럼명                | 데이터 타입 | 설명               |
 | --------------------- | ----------- | ------------------ |
 | movie_id              | INT         | 영화 ID (FK)       |
 | production_company_id | INT         | 제작사 ID (FK)     |
 
-### 감독 (Director) 테이블 : 감독 정보를 저장하는 테이블
+#### 감독 (Director) 테이블 : 감독 정보를 저장하는 테이블
 | 컬럼명 | 데이터 타입  | 설명         |
 | ------ | ------------ | ------------ |
 | id     | INT          | 감독 ID (PK) |
 | name   | VARCHAR(255) | 감독 이름    |
 
-### 영화-감독 (MovieDirector) 테이블 : 영화와 감독 간의 관계를 저장하는 테이블
+#### 영화-감독 (MovieDirector) 테이블 : 영화와 감독 간의 관계를 저장하는 테이블
 | 컬럼명    | 데이터 타입 | 설명          |
 | --------- | ----------- | ------------- |
 | movie_id  | INT         | 영화 ID (FK)  |
 | director_id | INT       | 감독 ID (FK)  |
 
-### 카테고리 (Category) 테이블 : 영화 카테고리 정보를 저장하는 테이블
+#### 카테고리 (Category) 테이블 : 영화 카테고리 정보를 저장하는 테이블
 | 컬럼명 | 데이터 타입  | 설명             |
 | ------ | ------------ | ---------------- |
 | id     | INT          | 카테고리 ID (PK) |
 | name   | VARCHAR(255) | 카테고리 이름    |
 
-### 영화-카테고리 (MovieCategory) 테이블 : 영화와 카테고리 간의 관계를 저장하는 테이블
+#### 영화-카테고리 (MovieCategory) 테이블 : 영화와 카테고리 간의 관계를 저장하는 테이블
 | 컬럼명    | 데이터 타입 | 설명             |
 | --------- | ----------- | ---------------- |
 | movie_id  | INT         | 영화 ID (FK)     |
 | category_id | INT       | 카테고리 ID (FK) |
 
-## 서버 전체 코드 구조
+### 서버 전체 코드 구조 📃
 - **config/**: 애플리케이션 설정 파일. 보안 설정(SecurityConfig)과 웹 설정(WebConfig)을 포함.
 - **controller/**: HTTP 요청을 처리하는 컨트롤러 클래스. 기능별로 세분화된 서브 디렉토리 포함.
 - **dto/**: 데이터 전송 객체(Data Transfer Object) 클래스. 계층 간 데이터 교환을 담당.
@@ -181,7 +181,7 @@
 - **status/**: 응답 상태를 정의하는 클래스.
 - **util/**: 애플리케이션에서 사용하는 유틸리티 클래스.
 
-## 라우터
+### 라우터 🌐
 - **Member**
     - **GET /member/allEmail:** 모든 회원의 이메일을 조회
     - **POST /member/add:** 새로운 회원을 추가 (회원가입)
@@ -202,31 +202,31 @@
 - **Auth**
     - **POST /auth/login:** 사용자 로그인 및 JWT 토큰 발급을 처리
 
-## 컨트롤러
+### 컨트롤러 ⌨️
 - **MemberController:** 사용자 관리
 - **MemberProfileController:** 사용자 프로필 관리
 - **GetAllMovieController:** 모든 영화 조회
 - **WishlistController:** 위시리스트 관리
 - **AuthController:** 인증 처리
 
-## 서비스
+### 서비스 ⚙️ 
 - **MemberService:** 사용자 관련 비즈니스 로직
 - **MemberProfileService:** 사용자 프로필 관련 비즈니스 로직
 - **MovieService:** 영화 관련 비즈니스 로직
 - **WishlistService:** 위시리스트 관련 비즈니스 로직
 - **MemberLoginService:** 로그인 관련 비즈니스 로직
 
-## 보안(시큐리티, 토큰)
+### 보안(시큐리티, 토큰) 🔐
 - Spring Security와 JWT(Json Web Token)를 사용하여 보안을 구현. JWT를 통해 사용자의 인증과 권한 부여를 관리
 - **JWTFilter:** HTTP 요청을 가로채고 JWT 토큰을 검증하는 필터
 - **SecurityConfig:** Spring Security 설정을 정의한 클래스.  JWTFilter를 SecurityFilterChain에 추가하고, 인증 및 권한 부여 규칙을 설정
 - **UserDetailsService:** 사용자 정보를 로드하는 서비스. 이메일을 기반으로 사용자를 검색하고 인증에 필요한 정보를 제공
 - **PasswordEncoder:** BCryptPasswordEncoder를 사용하여 비밀번호를 암호화
 
-## 에러처리
+### 에러처리 ❗
 - 일관된 에러 처리를 위해 ApiResponse와 ResponseStatus 열거형을 사용
 
-## 테스트 (postman)
+## 테스트케이스 📝
 - **회원 관리**
     | 테스트 케이스 ID | 제목 | 목적 | 전체 조건 | 실제 결과 | 상태 | 처리 |
     | --- | --- | --- | --- | --- | --- | --- |
@@ -249,7 +249,11 @@
     | C-TC02 | 찜 목록 추가 | 사용자가 찜 목록에 영화 추가 | 영화 ID 입력 | 영화가 찜 목록에 추가됨 | 성공 | 정상 처리됨 |
     | C-TC03 | 찜 목록 삭제 | 사용자가 찜 목록에서 영화 삭제 | 영화 ID 입력 | 영화가 찜 목록에서 삭제됨 | 성공 | 정상 처리됨 |
 
-## 참고자료 및 출처
+## 참고자료 및 출처 📡
 - **책**
     - *RESTful API 서버 구현: 스프링 부트와 JPA를 이용하는 API 서버 만들기* - 저자: 김영한, 출판연도: 2020
     - *스프링 부트 3 백엔드 개발자 되기: 백엔드 로드맵에서 엄선한 최신 테크 트리로 탄탄히 배우기, 자바 편* - 저자: 이지스퍼블리싱, 출판연도: 2023
+- **데이터**: 
+  - YouTube: [https://www.youtube.com](https://www.youtube.com)
+  - Netflix: [https://www.netflix.com/kr/](https://www.netflix.com/kr/)
+  - 나무위키: [https://namu.wiki](https://namu.wiki)
