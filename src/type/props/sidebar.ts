@@ -1,4 +1,5 @@
 import { MainData } from "../data/MainData";
+import { MemberResponseType } from "../service/get/member";
 import { SideBarCurrentPageStateType } from "../state";
 
 // 사이드 바 리스트 Props 타입
@@ -25,4 +26,8 @@ export type viewingHistoryContainerPropsType = {
   setViewingHistory: React.Dispatch<React.SetStateAction<MainData[]>>;
   wishMSGModal: "opacity-0" | "opacity-100";
   isOpen: boolean;
+  setMemberData: React.Dispatch<
+    React.SetStateAction<MemberResponseType | null>
+  >;
+  memberData?: MemberResponseType | null;
 };
