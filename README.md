@@ -17,6 +17,10 @@
 | **배포** | AZURE                           |
 
 ## 팀원
+- **Developer**: 노유정, 김민서
+- **Project Manager**: 김민서
+- **Data Collector, QA**: 홍석환
+  
 - **김민서 (Developer, Project Manager)**
     - 계정 데이터 가져오기
     - 영화 전체 데이터 가져오기
