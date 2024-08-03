@@ -99,7 +99,7 @@ const ProfileWishContainer = ({
         />
       )}
       {teaserModal && (
-        <WishModal message={isWish ? "추가" : "삭제"} opacity={wishMSGModal} />
+        <WishModal message={isWish ? "삭제" : "추가"} opacity={wishMSGModal} />
       )}
     </section>
   );
