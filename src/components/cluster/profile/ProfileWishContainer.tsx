@@ -20,7 +20,9 @@ const ProfileWishContainer = ({
   setViewingHistory,
   title,
   setLoginMember,
-  viewingHistory
+  viewingHistory,
+  setMemberData,
+  memberData,
 }: ProfileWishContainerPropsType) => {
   const [teaserModal, setTeaserModal] = useState<boolean>(false);
   // 티저 모달 콘텐츠 추적
@@ -92,6 +94,8 @@ const ProfileWishContainer = ({
           setIsWish={setIsWish}
           setViewingHistory={setViewingHistory}
           teaserModal={teaserModal}
+          setMemberData={setMemberData}
+          memberData={memberData}
         />
       )}
       {teaserModal && (
