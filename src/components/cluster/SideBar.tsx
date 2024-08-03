@@ -42,6 +42,8 @@ const SideBar = ({
   setViewingHistory,
   wishMSGModal,
   loginMember,
+  setMemberData,
+  memberData
 }: SideBarPropsType) => {
   // 사이드 바 오픈 상태
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -158,6 +160,8 @@ const SideBar = ({
           setViewingHistory={setViewingHistory}
           wishMSGModal={wishMSGModal}
           isOpen={isOpen}
+          setMemberData={setMemberData}
+          memberData={memberData}
         />
       </div>
       {/* 사이드바 오픈 상태  */}
@@ -174,4 +178,5 @@ const SideBar = ({
 };
 
 export default SideBar;
+
 
