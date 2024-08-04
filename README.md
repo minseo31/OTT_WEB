@@ -16,7 +16,7 @@
 | **커뮤니케이션** | Notion, KakaoTalk                           |
 | **배포** | AZURE                           |
 
-![logo](/BackLogo.png)
+![logo](/BackLogo1.png)
 
 ## 팀원 🧑‍🤝‍🧑
 - **Developer**: 노유정, 김민서
