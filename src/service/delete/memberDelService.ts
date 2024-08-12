@@ -17,7 +17,7 @@ export const fetchMemberDel = async (
   try {
     const response = await axios
       .delete<MemberDelResponseType>(
-        `https://ott-ss.azurewebsites.net/memberprofile/delete?memberProfileId=${memberDelData.memberID}`,
+        `https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/memberprofile/delete?memberProfileId=${memberDelData.memberID}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`, // JWT 토큰을 헤더에 포함
