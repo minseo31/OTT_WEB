@@ -8,7 +8,7 @@ export const emailService = async (): Promise<EmailResponseType> => {
   try {
     const response = await axios
       .get<EmailResponseType>(
-        `https://ott-ss.azurewebsites.net/member/allEmail`,
+        `https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/member/allEmail`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`, // JWT 토큰을 헤더에 포함
