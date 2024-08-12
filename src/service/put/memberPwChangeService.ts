@@ -19,7 +19,7 @@ export const fetchMemberPasswordChange = async (
   try {
     const response = await axios
       .put<MemberPasswordResponseType>(
-        `https://ott-ss.azurewebsites.net/member/changePassword`,
+        `https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/member/changePassword`,
         memberPwData,
         {
           headers: {
