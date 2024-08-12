@@ -6,7 +6,7 @@ import { axiosError } from "../../util/error/service/axiosError";
 export const fetchMovies = async (): Promise<MovieResponseType> => {
   try {
     const response = await axios.get<MovieResponseType>(
-      "https://ott-ss.azurewebsites.net/movie/all",
+      "https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/movie/all",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`, // JWT 토큰을 헤더에 포함
