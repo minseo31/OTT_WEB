@@ -18,7 +18,7 @@ export const fetchUserWishDel = async (
   try {
     const response = await axios
       .delete<UserWishDelResponseType>(
-        `https://ott-ss.azurewebsites.net/wishlist/user/delete?email=${userWishDelData.email}&movieID=${userWishDelData.movieID}`,
+        `https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/wishlist/user/delete?email=${userWishDelData.email}&movieID=${userWishDelData.movieID}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`, // JWT 토큰을 헤더에 포함
