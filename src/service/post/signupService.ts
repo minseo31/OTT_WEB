@@ -26,7 +26,7 @@ export const fetchUserAdd = async (
     // 서버 요청
     const response = await axios
       .post<UserAddResponseType>(
-        `https://ott-ss.azurewebsites.net/member/add`,
+        `https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/member/add`,
         userData,
         {
           headers: {
