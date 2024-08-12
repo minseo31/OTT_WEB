@@ -12,7 +12,7 @@ export const fetchMember = async (
   try {
     const response = await axios
       .get<MemberResponseType>(
-        `https://ott-ss.azurewebsites.net/member/member?email=${email}`,
+        `https://ott-server-fthqbeejaye7ewfy.koreacentral-01.azurewebsites.net/member/member?email=${email}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // JWT 토큰을 헤더에 포함
